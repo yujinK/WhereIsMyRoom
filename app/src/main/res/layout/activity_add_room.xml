@@ -129,7 +129,32 @@
             app:layout_constraintTop_toBottomOf="@+id/add_txt_utilities"
             app:layout_constraintLeft_toLeftOf="parent"/>
 
-      
+        <Button
+            android:id="@+id/add_btn_internet"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:text="@string/utilitiesInternet"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@+id/add_num_utilities"
+            app:layout_constraintLeft_toRightOf="@+id/add_txt_included_utilities"/>
+
+        <Button
+            android:id="@+id/add_btn_tv"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:text="@string/utilitiesTv"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@+id/add_num_utilities"
+            app:layout_constraintLeft_toRightOf="@+id/add_btn_internet"/>
+
+        <Button
+            android:id="@+id/add_btn_water"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:text="@string/utilitiesWater"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@+id/add_num_utilities"
+            app:layout_constraintLeft_toRightOf="@+id/add_btn_tv"/>
 
     </android.support.constraint.ConstraintLayout>
 
