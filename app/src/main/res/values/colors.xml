@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#403F3D</color>
+    <color name="colorPrimaryDark">#30302E</color>
+    <color name="colorAccent">#EDEAE1</color>
+
+    <!--Floating Action Button-->
+    <color name="fabPrimary">#403F3D</color>
+    <color name="fabPressed">#878581</color>
+    <color name="fabRipple">#CFCBC5</color>
 </resources>
