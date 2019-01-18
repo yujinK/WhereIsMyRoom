@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WhereIsMyRoom</string>
+    <string name="addToolBar">방 추가</string>
 </resources>

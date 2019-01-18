@@ -10,11 +10,11 @@
             name="activity"
             type="com.example.yujin.whereismyroom.MainActivity" />
     </data>
-    
+
     <android.support.v4.widget.DrawerLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -26,7 +26,8 @@
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
                 android:elevation="4dp"
-                android:theme="@style/Base.ThemeOverlay.AppCompat.ActionBar"/>
+                android:theme="@style/Base.ThemeOverlay.AppCompat.ActionBar"
+                app:titleTextColor="@color/white"/>
 
         </LinearLayout>
 
