@@ -1,16 +1,21 @@
 <resources>
     <string name="app_name">WhereIsMyRoom</string>
 
+    <!--common string-->
+    <string name="costInfo">가격</string>
+    <string name="currencyUnit">만원</string>
+    <string name="deposit">보증금</string>
+    <string name="rentMonth">월세</string>
+    <string name="rentMonthDetail">전세의 경우 월세에 0을 입력하세요</string>
+    <string name="utilities">관리비</string>
+    <string name="utilitiesDetail">관리비가 없을 경우 0을 입력하세요</string>
+    <string name="includedUtilities">관리비 포함항목</string>
+    <string name="floor">층수</string>
+    <string name="buildFloor">건물 층 수</string>
+    <string name="myFloor">해당 층 수</string>
+    <string name="parkingAvailability">주차가능여부</string>
+    <string name="detailInfo">상세정보</string>
+
     <!--activity_add_room.xml-->
     <string name="addToolBar">방 추가</string>
-    <string name="addCostInfo">가격</string>
-    <string name="addDeposit">보증금</string>
-    <string name="addRentMonth">월세</string>
-    <string name="addUtilities">관리비</string>
-    <string name="includedUtilities">포함항목</string>
-    <string name="utilitiesInternet">인터넷</string>
-    <string name="utilitiesTv">티비</string>
-    <string name="utilitiesWater">수도세</string>
-    <string name="addParkingFee">주차비</string>
-    <string name="addDetailInfo">상세정보</string>
 </resources>

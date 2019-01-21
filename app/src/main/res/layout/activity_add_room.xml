@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".AddRoomActivity">
 
     <data>
+
         <variable
             name="activity"
             type="com.example.yujin.whereismyroom.AddRoomActivity" />
@@ -14,7 +14,7 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white">
+        android:background="@color/lightGray">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/add_toolbar"
@@ -24,7 +24,7 @@
             android:elevation="4dp"
             android:theme="@style/Base.ThemeOverlay.AppCompat.ActionBar"
             app:layout_constraintTop_toTopOf="parent"
-            app:titleTextColor="@color/white"/>
+            app:titleTextColor="@color/white" />
 
         <ImageView
             android:id="@+id/add_img_room"
@@ -37,124 +37,271 @@
             android:id="@+id/add_txt_cost_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="20dp"
-            android:text="@string/addCostInfo"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/costInfo"
+            android:textColor="@color/darkGray"
+            android:textSize="18sp"
             android:textStyle="bold"
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@+id/add_img_room"
-            app:layout_constraintBottom_toTopOf="@+id/add_btn_rent_year"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_img_room" />
 
-        <!-- style="@style/Base.TextAppearance.AppCompat.Widget.Button.Colored"-->
-        <Button
-            android:theme="@style/AppTheme.Button"
-            android:id="@+id/add_btn_rent_year"
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="5dp"
-            android:text="@string/addRentYear"
-            android:textSize="14sp"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:onClick="@{activity::onRentTypeButtonClick}"
-            app:layout_constraintTop_toBottomOf="@+id/add_txt_cost_info"
-            app:layout_constraintLeft_toLeftOf="parent" />
-
-        <Button
-            android:id="@+id/add_btn_rent_month"
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"
-            android:text="@string/addRentMonth"
-            android:textSize="14sp"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:onClick="@{activity::onRentTypeButtonClick}"
-            app:layout_constraintTop_toBottomOf="@+id/add_txt_cost_info"
-            app:layout_constraintLeft_toRightOf="@+id/add_btn_rent_year"/>
+        <TextView
+            android:id="@+id/add_txt_deposit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/deposit"
+            android:textColor="@color/darkGray"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/add_txt_cost_info" />
 
         <EditText
-            android:id="@+id/add_edit_rent_cost"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"
+            android:id="@+id/add_edit_deposit"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded_border_edittext"
+            android:inputType="numberDecimal"
+            android:maxLength="30"
+            android:padding="10dp"
+            android:textColor="@color/darkGray"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_txt_deposit" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/currencyUnit"
+            android:textColor="@color/darkGray"
+            android:textSize="16sp"
+            app:layout_constraintRight_toRightOf="@+id/add_edit_deposit"
+            app:layout_constraintTop_toBottomOf="@+id/add_txt_deposit" />
+
+        <TextView
+            android:id="@+id/add_txt_rent_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/rentMonth"
+            android:textColor="@color/darkGray"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/add_edit_deposit" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="17dp"
+            android:text="@string/rentMonthDetail"
+            android:textColor="@color/red"
             android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@+id/add_txt_cost_info"
-            app:layout_constraintLeft_toRightOf="@+id/add_btn_rent_month"/>
+            app:layout_constraintLeft_toRightOf="@+id/add_txt_rent_month"
+            app:layout_constraintTop_toBottomOf="@+id/add_edit_deposit" />
+
+        <EditText
+            android:id="@+id/add_edit_rent_month"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded_border_edittext"
+            android:inputType="numberDecimal"
+            android:maxLength="30"
+            android:padding="10dp"
+            android:textColor="@color/darkGray"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_txt_rent_month" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/currencyUnit"
+            android:textColor="@color/darkGray"
+            android:textSize="16sp"
+            app:layout_constraintRight_toRightOf="@+id/add_edit_rent_month"
+            app:layout_constraintTop_toBottomOf="@+id/add_txt_rent_month" />
 
         <TextView
             android:id="@+id/add_txt_utilities"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp"
-            android:text="@string/addUtilities"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/utilities"
+            android:textColor="@color/darkGray"
             android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@+id/add_btn_rent_year"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/add_edit_rent_month" />
 
-        <CheckBox
-            android:id="@+id/add_check_no_utilities"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:layout_marginLeft="5dp"
-            android:text="@string/noUtilities"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="17dp"
+            android:text="@string/utilitiesDetail"
+            android:textColor="@color/red"
             android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@+id/add_btn_rent_month"
-            app:layout_constraintLeft_toRightOf="@+id/add_txt_utilities"/>
-        
-        <com.travijuu.numberpicker.library.NumberPicker
-            android:id="@+id/add_num_utilities"
-            android:layout_width="130dp"
-            android:layout_height="40dp"
-            app:min="0"
-            app:max="50"
-            app:value="-5"
-            app:unit="1"
-            app:focusable="false"
-            app:layout_constraintTop_toBottomOf="@+id/add_edit_rent_cost"
-            app:layout_constraintLeft_toRightOf="@+id/add_check_no_utilities"/>
+            app:layout_constraintLeft_toRightOf="@+id/add_txt_utilities"
+            app:layout_constraintTop_toBottomOf="@+id/add_edit_rent_month" />
+
+        <EditText
+            android:id="@+id/add_edit_utilities"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded_border_edittext"
+            android:inputType="numberDecimal"
+            android:maxLength="30"
+            android:padding="10dp"
+            android:textColor="@color/darkGray"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_txt_utilities" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/currencyUnit"
+            android:textColor="@color/darkGray"
+            android:textSize="16sp"
+            app:layout_constraintRight_toRightOf="@+id/add_edit_utilities"
+            app:layout_constraintTop_toBottomOf="@+id/add_txt_utilities" />
 
         <TextView
             android:id="@+id/add_txt_included_utilities"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
-            android:layout_marginLeft="73dp"
             android:text="@string/includedUtilities"
+            android:textColor="@color/darkGray"
             android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@+id/add_txt_utilities"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/add_edit_utilities" />
 
-        <Button
-            android:id="@+id/add_btn_internet"
-            android:layout_width="70dp"
-            android:layout_height="40dp"
-            android:text="@string/utilitiesInternet"
-            android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@+id/add_num_utilities"
-            app:layout_constraintLeft_toRightOf="@+id/add_txt_included_utilities"/>
+        <RelativeLayout
+            android:id="@+id/add_layout_utilities"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/spinner_custom"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_txt_included_utilities">
 
-        <Button
-            android:id="@+id/add_btn_tv"
-            android:layout_width="70dp"
-            android:layout_height="40dp"
-            android:text="@string/utilitiesTv"
-            android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@+id/add_num_utilities"
-            app:layout_constraintLeft_toRightOf="@+id/add_btn_internet"/>
+            <com.example.yujin.whereismyroom.MultiSelectionSpinner
+                android:id="@+id/add_spinner_utilities"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:textColor="@color/darkGray"
+                android:textSize="16sp" />
+        </RelativeLayout>
 
-        <Button
-            android:id="@+id/add_btn_water"
-            android:layout_width="70dp"
-            android:layout_height="40dp"
-            android:text="@string/utilitiesWater"
-            android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@+id/add_num_utilities"
-            app:layout_constraintLeft_toRightOf="@+id/add_btn_tv"/>
+        <TextView
+            android:id="@+id/add_txt_floor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
+            android:text="@string/floor"
+            android:textColor="@color/darkGray"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_layout_utilities" />
+
+
+        <TextView
+            android:id="@+id/add_txt_build_floor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/buildFloor"
+            android:textColor="@color/darkGray"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/add_txt_floor"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <RelativeLayout
+            android:id="@+id/add_layout_build_floor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/spinner_custom"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_txt_build_floor">
+
+            <Spinner
+                android:id="@+id/add_spinner_build_floor"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:textColor="@color/darkGray"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/add_txt_my_floor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/myFloor"
+            android:textColor="@color/darkGray"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/add_layout_build_floor"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <RelativeLayout
+            android:id="@+id/add_layout_my_floor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/spinner_custom"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_txt_my_floor">
+
+            <Spinner
+                android:id="@+id/add_spinner_my_floor"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:textColor="@color/darkGray"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
 
     </android.support.constraint.ConstraintLayout>
 

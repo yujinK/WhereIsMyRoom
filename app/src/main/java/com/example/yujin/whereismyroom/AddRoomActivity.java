@@ -5,6 +5,8 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.SpinnerAdapter;
 
 import com.example.yujin.whereismyroom.databinding.ActivityAddRoomBinding;
 
@@ -28,16 +30,33 @@ public class AddRoomActivity extends AppCompatActivity {
         //툴바 왼쪽 back 버튼
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.baseline_arrow_back_white_24);
+
+        //관리비 spinner 초기화
+        initUtilities();
+
+        //건물 층 수 spinner 초기화
+        initBuildFloor();
+
+        //해당 층 수 spinner 초기화
+        initMyFloor();
     }
 
-    public void onRentTypeButtonClick(View view) {
-        if (view == binding.addBtnRentYear) {
-            //TODO: change button background color -> search material design
-            binding.addBtnRentMonth.setBackgroundColor(Color.TRANSPARENT);
-            binding.addBtnRentYear.setBackgroundColor(getResources().getColor(R.color.blue));
-        } else if (view == binding.addBtnRentMonth) {
-            binding.addBtnRentYear.setBackgroundColor(Color.TRANSPARENT);
-            binding.addBtnRentMonth.setBackgroundColor(getResources().getColor(R.color.blue));
-        }
+    private void initUtilities() {
+        String items[] = getResources().getStringArray(R.array.utilities);
+        binding.addSpinnerUtilities.setItems(items);
+    }
+
+    private void initBuildFloor() {
+        String items[] = getResources().getStringArray(R.array.floors);
+
+        SpinnerAdapter sa = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, items);
+        binding.addSpinnerBuildFloor.setAdapter(sa);
+    }
+
+    private void initMyFloor() {
+        String items[] = getResources().getStringArray(R.array.floors);
+
+        SpinnerAdapter sa = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, items);
+        binding.addSpinnerMyFloor.setAdapter(sa);
     }
 }

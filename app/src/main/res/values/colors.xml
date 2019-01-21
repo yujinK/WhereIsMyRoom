@@ -9,6 +9,9 @@
     <color name="white">#FFFFFF</color>
     <color name="blue">#6774FF</color>
     <color name="red">#ff0000</color>
+    <color name="lightGray">#F2F2F2</color>
+    <color name="darkGray">#1C1C1C</color>
+    <color name="darkRed">#D20001</color>
 
     <!--Floating Action Button-->
     <color name="fabPrimary">#403F3D</color>
