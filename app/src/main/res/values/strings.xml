@@ -3,11 +3,10 @@
 
     <!--activity_add_room.xml-->
     <string name="addToolBar">방 추가</string>
-    <string name="addCostInfo">가격정보</string>
-    <string name="addRentYear">전세</string>
+    <string name="addCostInfo">가격</string>
+    <string name="addDeposit">보증금</string>
     <string name="addRentMonth">월세</string>
     <string name="addUtilities">관리비</string>
-    <string name="noUtilities">없음</string>
     <string name="includedUtilities">포함항목</string>
     <string name="utilitiesInternet">인터넷</string>
     <string name="utilitiesTv">티비</string>
