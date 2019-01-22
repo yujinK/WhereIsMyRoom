@@ -13,6 +13,15 @@
     <string name="floor">층수</string>
     <string name="buildFloor">건물 층 수</string>
     <string name="myFloor">해당 층 수</string>
+    <string name="direction">방향</string>
+    <string name="roomType">방 구조</string>
+    <string name="roomSize">크기</string>
+    <string name="roomSizeDetail">㎡과 평 중 하나만 입력하면 자동 계산됩니다</string>
+    <string name="roomSizeM">㎡</string>
+    <string name="roomSizeP">평</string>
+    <string name="roomArrow">=</string>
+    <string name="option">옵션</string>
+    <string name="animal">반려동물</string>
     <string name="parkingAvailability">주차가능여부</string>
     <string name="detailInfo">상세정보</string>
 

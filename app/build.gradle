@@ -39,4 +39,7 @@ dependencies {
 
     //Number Picker
     implementation 'com.github.travijuu:numberpicker:1.0.7'
+
+    //Toggle Button
+    implementation 'org.honorato.multistatetogglebutton:multistatetogglebutton:0.2.2'
 }

@@ -5,304 +5,524 @@
     tools:context=".AddRoomActivity">
 
     <data>
-
         <variable
             name="activity"
             type="com.example.yujin.whereismyroom.AddRoomActivity" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/lightGray">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/add_toolbar"
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:elevation="4dp"
-            android:theme="@style/Base.ThemeOverlay.AppCompat.ActionBar"
-            app:layout_constraintTop_toTopOf="parent"
-            app:titleTextColor="@color/white" />
+            android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/add_img_room"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            app:layout_constraintTop_toBottomOf="@+id/add_toolbar"
-            tools:src="@drawable/room_sample" />
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/add_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:elevation="4dp"
+                android:theme="@style/Base.ThemeOverlay.AppCompat.ActionBar"
+                app:layout_constraintTop_toTopOf="parent"
+                app:titleTextColor="@color/white" />
 
-        <TextView
-            android:id="@+id/add_txt_cost_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/costInfo"
-            android:textColor="@color/darkGray"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/add_img_room" />
+            <ImageView
+                android:id="@+id/add_img_room"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                app:layout_constraintTop_toBottomOf="@+id/add_toolbar"
+                tools:src="@drawable/room_sample" />
 
-        <TextView
-            android:id="@+id/add_txt_deposit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            android:text="@string/deposit"
-            android:textColor="@color/darkGray"
-            android:textSize="16sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/add_txt_cost_info" />
+            <TextView
+                android:id="@+id/add_txt_cost_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/costInfo"
+                android:textColor="@color/darkGray"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_img_room" />
 
-        <EditText
-            android:id="@+id/add_edit_deposit"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/rounded_border_edittext"
-            android:inputType="numberDecimal"
-            android:maxLength="30"
-            android:padding="10dp"
-            android:textColor="@color/darkGray"
-            android:textSize="20sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/add_txt_deposit" />
+            <TextView
+                android:id="@+id/add_txt_deposit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/deposit"
+                android:textColor="@color/darkGray"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/add_txt_cost_info" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="10dp"
-            android:gravity="center_vertical"
-            android:text="@string/currencyUnit"
-            android:textColor="@color/darkGray"
-            android:textSize="16sp"
-            app:layout_constraintRight_toRightOf="@+id/add_edit_deposit"
-            app:layout_constraintTop_toBottomOf="@+id/add_txt_deposit" />
-
-        <TextView
-            android:id="@+id/add_txt_rent_month"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            android:text="@string/rentMonth"
-            android:textColor="@color/darkGray"
-            android:textSize="16sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/add_edit_deposit" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="17dp"
-            android:text="@string/rentMonthDetail"
-            android:textColor="@color/red"
-            android:textSize="14sp"
-            app:layout_constraintLeft_toRightOf="@+id/add_txt_rent_month"
-            app:layout_constraintTop_toBottomOf="@+id/add_edit_deposit" />
-
-        <EditText
-            android:id="@+id/add_edit_rent_month"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/rounded_border_edittext"
-            android:inputType="numberDecimal"
-            android:maxLength="30"
-            android:padding="10dp"
-            android:textColor="@color/darkGray"
-            android:textSize="20sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/add_txt_rent_month" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="10dp"
-            android:gravity="center_vertical"
-            android:text="@string/currencyUnit"
-            android:textColor="@color/darkGray"
-            android:textSize="16sp"
-            app:layout_constraintRight_toRightOf="@+id/add_edit_rent_month"
-            app:layout_constraintTop_toBottomOf="@+id/add_txt_rent_month" />
-
-        <TextView
-            android:id="@+id/add_txt_utilities"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            android:text="@string/utilities"
-            android:textColor="@color/darkGray"
-            android:textSize="16sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/add_edit_rent_month" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="17dp"
-            android:text="@string/utilitiesDetail"
-            android:textColor="@color/red"
-            android:textSize="14sp"
-            app:layout_constraintLeft_toRightOf="@+id/add_txt_utilities"
-            app:layout_constraintTop_toBottomOf="@+id/add_edit_rent_month" />
-
-        <EditText
-            android:id="@+id/add_edit_utilities"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/rounded_border_edittext"
-            android:inputType="numberDecimal"
-            android:maxLength="30"
-            android:padding="10dp"
-            android:textColor="@color/darkGray"
-            android:textSize="20sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/add_txt_utilities" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="10dp"
-            android:gravity="center_vertical"
-            android:text="@string/currencyUnit"
-            android:textColor="@color/darkGray"
-            android:textSize="16sp"
-            app:layout_constraintRight_toRightOf="@+id/add_edit_utilities"
-            app:layout_constraintTop_toBottomOf="@+id/add_txt_utilities" />
-
-        <TextView
-            android:id="@+id/add_txt_included_utilities"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            android:text="@string/includedUtilities"
-            android:textColor="@color/darkGray"
-            android:textSize="16sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/add_edit_utilities" />
-
-        <RelativeLayout
-            android:id="@+id/add_layout_utilities"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/spinner_custom"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/add_txt_included_utilities">
-
-            <com.example.yujin.whereismyroom.MultiSelectionSpinner
-                android:id="@+id/add_spinner_utilities"
+            <EditText
+                android:id="@+id/add_edit_deposit"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/rounded_border_edittext"
+                android:inputType="numberDecimal"
+                android:maxLength="30"
+                android:padding="10dp"
                 android:textColor="@color/darkGray"
-                android:textSize="16sp" />
-        </RelativeLayout>
+                android:textSize="20sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_txt_deposit" />
 
-        <TextView
-            android:id="@+id/add_txt_floor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="40dp"
-            android:text="@string/floor"
-            android:textColor="@color/darkGray"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/add_layout_utilities" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center_vertical"
+                android:text="@string/currencyUnit"
+                android:textColor="@color/darkGray"
+                android:textSize="16sp"
+                app:layout_constraintRight_toRightOf="@+id/add_edit_deposit"
+                app:layout_constraintTop_toBottomOf="@+id/add_txt_deposit" />
 
+            <TextView
+                android:id="@+id/add_txt_rent_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/rentMonth"
+                android:textColor="@color/darkGray"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/add_edit_deposit" />
 
-        <TextView
-            android:id="@+id/add_txt_build_floor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            android:text="@string/buildFloor"
-            android:textColor="@color/darkGray"
-            android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@id/add_txt_floor"
-            app:layout_constraintLeft_toLeftOf="parent" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/rentMonthDetail"
+                android:textColor="@color/red"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toRightOf="@+id/add_txt_rent_month"
+                app:layout_constraintBottom_toBottomOf="@+id/add_txt_rent_month" />
 
-        <RelativeLayout
-            android:id="@+id/add_layout_build_floor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/spinner_custom"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/add_txt_build_floor">
-
-            <Spinner
-                android:id="@+id/add_spinner_build_floor"
+            <EditText
+                android:id="@+id/add_edit_rent_month"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/rounded_border_edittext"
+                android:inputType="numberDecimal"
+                android:maxLength="30"
+                android:padding="10dp"
                 android:textColor="@color/darkGray"
-                android:textSize="16sp" />
+                android:textSize="20sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_txt_rent_month" />
 
-        </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center_vertical"
+                android:text="@string/currencyUnit"
+                android:textColor="@color/darkGray"
+                android:textSize="16sp"
+                app:layout_constraintRight_toRightOf="@+id/add_edit_rent_month"
+                app:layout_constraintTop_toBottomOf="@+id/add_txt_rent_month" />
 
-        <TextView
-            android:id="@+id/add_txt_my_floor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            android:text="@string/myFloor"
-            android:textColor="@color/darkGray"
-            android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@id/add_layout_build_floor"
-            app:layout_constraintLeft_toLeftOf="parent" />
+            <TextView
+                android:id="@+id/add_txt_utilities"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/utilities"
+                android:textColor="@color/darkGray"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/add_edit_rent_month" />
 
-        <RelativeLayout
-            android:id="@+id/add_layout_my_floor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/spinner_custom"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/add_txt_my_floor">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/utilitiesDetail"
+                android:textColor="@color/red"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toRightOf="@+id/add_txt_utilities"
+                app:layout_constraintBottom_toBottomOf="@+id/add_txt_utilities" />
 
-            <Spinner
-                android:id="@+id/add_spinner_my_floor"
+            <EditText
+                android:id="@+id/add_edit_utilities"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/rounded_border_edittext"
+                android:inputType="numberDecimal"
+                android:maxLength="30"
+                android:padding="10dp"
                 android:textColor="@color/darkGray"
-                android:textSize="16sp" />
+                android:textSize="20sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_txt_utilities" />
 
-        </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center_vertical"
+                android:text="@string/currencyUnit"
+                android:textColor="@color/darkGray"
+                android:textSize="16sp"
+                app:layout_constraintRight_toRightOf="@+id/add_edit_utilities"
+                app:layout_constraintTop_toBottomOf="@+id/add_txt_utilities" />
 
-    </android.support.constraint.ConstraintLayout>
+            <TextView
+                android:id="@+id/add_txt_included_utilities"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/includedUtilities"
+                android:textColor="@color/darkGray"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/add_edit_utilities" />
 
+            <RelativeLayout
+                android:id="@+id/add_layout_utilities"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/spinner_custom"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_txt_included_utilities">
+
+                <com.example.yujin.whereismyroom.MultiSelectionSpinner
+                    android:id="@+id/add_spinner_utilities"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:textColor="@color/darkGray"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/add_txt_floor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="40dp"
+                android:text="@string/floor"
+                android:textColor="@color/darkGray"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_layout_utilities" />
+
+
+            <TextView
+                android:id="@+id/add_txt_build_floor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/buildFloor"
+                android:textColor="@color/darkGray"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/add_txt_floor"
+                app:layout_constraintLeft_toLeftOf="parent" />
+
+            <RelativeLayout
+                android:id="@+id/add_layout_build_floor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/spinner_custom"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_txt_build_floor">
+
+                <Spinner
+                    android:id="@+id/add_spinner_build_floor"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:textColor="@color/darkGray"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/add_txt_my_floor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/myFloor"
+                android:textColor="@color/darkGray"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/add_layout_build_floor"
+                app:layout_constraintLeft_toLeftOf="parent" />
+
+            <RelativeLayout
+                android:id="@+id/add_layout_my_floor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/spinner_custom"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_txt_my_floor">
+
+                <Spinner
+                    android:id="@+id/add_spinner_my_floor"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:textColor="@color/darkGray"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/add_txt_direction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="40dp"
+                android:text="@string/direction"
+                android:textColor="@color/darkGray"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/add_layout_my_floor"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <RelativeLayout
+                android:id="@+id/add_layout_direction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/spinner_custom"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_txt_direction">
+
+                <Spinner
+                    android:id="@+id/add_spinner_direction"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:textColor="@color/darkGray"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/add_txt_room_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="40dp"
+                android:text="@string/roomType"
+                android:textColor="@color/darkGray"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/add_layout_direction"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <RelativeLayout
+                android:id="@+id/add_layout_room_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/spinner_custom"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_txt_room_type">
+
+                <Spinner
+                    android:id="@+id/add_spinner_room_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:textColor="@color/darkGray"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/add_txt_room_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="40dp"
+                android:text="@string/roomSize"
+                android:textColor="@color/darkGray"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/add_layout_room_type"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/roomSizeDetail"
+                android:textColor="@color/red"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toRightOf="@+id/add_txt_room_size"
+                app:layout_constraintBottom_toBottomOf="@+id/add_txt_room_size"/>
+
+            <EditText
+                android:id="@+id/add_edit_room_size_m"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                app:layout_constraintWidth_percent="0.4"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/rounded_border_edittext"
+                android:maxLength="30"
+                android:padding="10dp"
+                android:textColor="@color/darkGray"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@+id/add_txt_room_size"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center_vertical"
+                android:text="@string/roomSizeM"
+                android:textColor="@color/darkGray"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/add_txt_room_size"
+                app:layout_constraintRight_toRightOf="@+id/add_edit_room_size_m"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                app:layout_constraintWidth_percent="0.1"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/roomArrow"
+                android:textColor="@color/darkGray"
+                android:textSize="30sp"
+                app:layout_constraintTop_toBottomOf="@id/add_txt_room_size"
+                app:layout_constraintLeft_toRightOf="@id/add_edit_room_size_m"
+                app:layout_constraintRight_toLeftOf="@+id/add_edit_room_size_p"/>
+
+            <EditText
+                android:id="@+id/add_edit_room_size_p"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                app:layout_constraintWidth_percent="0.4"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/rounded_border_edittext"
+                android:maxLength="30"
+                android:padding="10dp"
+                android:textColor="@color/darkGray"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@+id/add_txt_room_size"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center_vertical"
+                android:text="@string/roomSizeP"
+                android:textColor="@color/darkGray"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/add_txt_room_size"
+                app:layout_constraintRight_toRightOf="@+id/add_edit_room_size_p"/>
+
+            <TextView
+                android:id="@+id/add_txt_option"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="40dp"
+                android:text="@string/option"
+                android:textColor="@color/darkGray"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/add_edit_room_size_m"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <RelativeLayout
+                android:id="@+id/add_layout_option"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/spinner_custom"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_txt_option">
+
+                <com.example.yujin.whereismyroom.MultiSelectionSpinner
+                    android:id="@+id/add_spinner_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:textColor="@color/darkGray"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/add_txt_animal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="40dp"
+                android:text="@string/animal"
+                android:textColor="@color/darkGray"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/add_layout_option"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <org.honorato.multistatetogglebutton.MultiStateToggleButton
+                android:id="@+id/add_toggle_animal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="10dp"
+                app:values="@array/animal"
+                app:mstbPrimaryColor="@color/white"
+                app:mstbSecondaryColor="@color/red"
+                app:layout_constraintTop_toBottomOf="@id/add_txt_animal"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
 </layout>

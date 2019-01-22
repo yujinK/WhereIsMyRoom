@@ -61,7 +61,7 @@ public class MultiSelectionSpinner extends AppCompatSpinner implements DialogInt
         _items = items;
         mSelection = new boolean[_items.length];
         simpleAdapter.clear();
-        simpleAdapter.add(_items[0]);
+//        simpleAdapter.add(_items[0]);
         Arrays.fill(mSelection, false);
     }
 

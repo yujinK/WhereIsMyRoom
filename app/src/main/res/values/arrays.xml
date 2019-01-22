@@ -40,4 +40,40 @@
         <item>29</item>
         <item>30</item>
     </string-array>
+
+    <string-array name="direction">
+        <item>동향</item>
+        <item>서향</item>
+        <item>남향</item>
+        <item>북향</item>
+    </string-array>
+
+    <string-array name="roomType">
+        <item>원룸(오픈형)</item>
+        <item>원룸(분리형)</item>
+        <item>원룸(복층형)</item>
+        <item>투룸</item>
+        <item>오피스텔</item>
+        <item>아파트</item>
+    </string-array>
+
+    <string-array name="option">
+        <item>에어컨</item>
+        <item>냉장고</item>
+        <item>세탁기</item>
+        <item>가스레인지</item>
+        <item>인덕션</item>
+        <item>전자레인지</item>
+        <item>책상</item>
+        <item>침대</item>
+        <item>옷장</item>
+        <item>신발장</item>
+        <item>싱크대</item>
+    </string-array>
+
+    <string-array name="animal">
+        <item>가능</item>
+        <item>고양이만</item>
+        <item>불가능</item>
+    </string-array>
 </resources>

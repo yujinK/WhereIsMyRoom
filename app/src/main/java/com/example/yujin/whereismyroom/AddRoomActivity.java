@@ -39,6 +39,18 @@ public class AddRoomActivity extends AppCompatActivity {
 
         //해당 층 수 spinner 초기화
         initMyFloor();
+
+        //방향 spinner 초기화
+        initDirection();
+
+        //방 구조 spinner 초기화
+        initRoomType();
+
+        //옵션 spinner 초기화
+        initOption();
+
+        //반려동물 toggle button 초기화
+        initAnimal();
     }
 
     private void initUtilities() {
@@ -58,5 +70,29 @@ public class AddRoomActivity extends AppCompatActivity {
 
         SpinnerAdapter sa = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, items);
         binding.addSpinnerMyFloor.setAdapter(sa);
+    }
+
+    private void initDirection() {
+        String items[] = getResources().getStringArray(R.array.direction);
+
+        SpinnerAdapter sa = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, items);
+        binding.addSpinnerDirection.setAdapter(sa);
+    }
+
+    private void initRoomType() {
+        String items[] = getResources().getStringArray(R.array.roomType);
+
+        SpinnerAdapter sa = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, items);
+        binding.addSpinnerRoomType.setAdapter(sa);
+    }
+
+    private void initOption() {
+        String items[] = getResources().getStringArray(R.array.option);
+        binding.addSpinnerOption.setItems(items);
+    }
+
+    private void initAnimal() {
+//        binding.addToggleAnimal.setElements(R.array.animal, 2);
+        binding.addToggleAnimal.setForegroundColorsRes(R.color.red, R.color.darkGray);
     }
 }
