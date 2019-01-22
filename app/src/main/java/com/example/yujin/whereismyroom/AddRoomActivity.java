@@ -24,12 +24,8 @@ public class AddRoomActivity extends AppCompatActivity {
     }
 
     private void init() {
-        setSupportActionBar(binding.addToolbar);
-        getSupportActionBar().setTitle(getString(R.string.addToolBar));
-
-        //툴바 왼쪽 back 버튼
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.baseline_arrow_back_white_24);
+        //Toolbar 초기화
+        initToolbar();
 
         //관리비 spinner 초기화
         initUtilities();
@@ -51,6 +47,15 @@ public class AddRoomActivity extends AppCompatActivity {
 
         //반려동물 toggle button 초기화
         initAnimal();
+    }
+
+    private void initToolbar() {
+        setSupportActionBar(binding.addToolbar);
+        getSupportActionBar().setTitle(getString(R.string.addToolBar));
+
+        //툴바 왼쪽 back 버튼
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.baseline_arrow_back_white_24);
     }
 
     private void initUtilities() {
@@ -92,7 +97,6 @@ public class AddRoomActivity extends AppCompatActivity {
     }
 
     private void initAnimal() {
-//        binding.addToggleAnimal.setElements(R.array.animal, 2);
-        binding.addToggleAnimal.setForegroundColorsRes(R.color.red, R.color.darkGray);
+
     }
 }
