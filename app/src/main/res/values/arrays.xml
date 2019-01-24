@@ -76,4 +76,14 @@
         <item>고양이만</item>
         <item>불가능</item>
     </string-array>
+
+    <string-array name="elevator">
+        <item>있음</item>
+        <item>없음</item>
+    </string-array>
+
+    <string-array name="parking">
+        <item>가능</item>
+        <item>불가능</item>
+    </string-array>
 </resources>

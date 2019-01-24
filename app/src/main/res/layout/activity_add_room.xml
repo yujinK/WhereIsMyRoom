@@ -525,11 +525,117 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="10dp"
+                    app:mstbSecondaryColor="@color/white"
+                    app:mstbPrimaryColor="@color/darkGray"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/add_txt_animal"
-                    app:mstbPrimaryColor="@color/white"
-                    app:mstbSecondaryColor="@color/red"
                     app:values="@array/animal" />
+
+                <TextView
+                    android:id="@+id/add_txt_elevator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="40dp"
+                    android:text="@string/elevator"
+                    android:textColor="@color/darkGray"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/add_toggle_animal" />
+
+                <org.honorato.multistatetogglebutton.MultiStateToggleButton
+                    android:id="@+id/add_toggle_elevator"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="10dp"
+                    app:mstbSecondaryColor="@color/white"
+                    app:mstbPrimaryColor="@color/darkGray"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/add_txt_elevator"
+                    app:values="@array/elevator" />
+
+                <TextView
+                    android:id="@+id/add_txt_parking"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="40dp"
+                    android:text="@string/parking"
+                    android:textColor="@color/darkGray"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/add_toggle_elevator" />
+
+                <org.honorato.multistatetogglebutton.MultiStateToggleButton
+                    android:id="@+id/add_toggle_parking"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="10dp"
+                    app:mstbSecondaryColor="@color/white"
+                    app:mstbPrimaryColor="@color/darkGray"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/add_txt_parking"
+                    app:values="@array/parking" />
+
+                <TextView
+                    android:id="@+id/add_txt_detail_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="40dp"
+                    android:text="@string/detailInfo"
+                    android:textColor="@color/darkGray"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/add_toggle_parking" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/detailSub"
+                    android:textColor="@color/red"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/add_txt_detail_info"
+                    app:layout_constraintLeft_toRightOf="@+id/add_txt_detail_info" />
+
+
+                <EditText
+                    android:id="@+id/add_edit_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/darkGray"
+                    android:textSize="16sp"
+                    android:background="@drawable/rounded_border_edittext"
+                    app:layout_constraintTop_toBottomOf="@id/add_txt_detail_info"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:text="@string/submit"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:background="@drawable/submit_button_custom"
+                    app:layout_constraintTop_toBottomOf="@id/add_edit_detail"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"/>
 
             </android.support.constraint.ConstraintLayout>
         </ScrollView>

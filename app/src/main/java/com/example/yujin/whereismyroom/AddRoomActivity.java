@@ -97,6 +97,6 @@ public class AddRoomActivity extends AppCompatActivity {
     }
 
     private void initAnimal() {
-
+//        binding.addToggleAnimal.setColorRes(R.color.red, R.color.white);
     }
 }
