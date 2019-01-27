@@ -1,12 +1,16 @@
 package com.example.yujin.whereismyroom;
 
+import android.content.DialogInterface;
 import android.databinding.DataBindingUtil;
 import android.graphics.Color;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.SpinnerAdapter;
+import android.widget.Toast;
 
 import com.example.yujin.whereismyroom.databinding.ActivityAddRoomBinding;
 
@@ -98,5 +102,19 @@ public class AddRoomActivity extends AppCompatActivity {
 
     private void initAnimal() {
 //        binding.addToggleAnimal.setColorRes(R.color.red, R.color.white);
+    }
+
+    public void onSubmitButtonClick(View view) {
+        if (binding.addEditDeposit.getText().length() != 0 &&
+                binding.addEditRentMonth.getText().length() != 0&&
+                binding.addEditDeposit.getText().length() != 0) {
+            //등록 진행
+        } else {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(R.string.alert);
+            builder.setMessage(R.string.alertMessage);
+            builder.setPositiveButton(R.string.ok, null);
+            builder.show();
+        }
     }
 }

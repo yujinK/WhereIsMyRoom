@@ -58,15 +58,27 @@
                     app:layout_constraintTop_toBottomOf="@+id/add_img_room" />
 
                 <TextView
-                    android:id="@+id/add_txt_deposit"
+                    android:id="@+id/add_txt_deposit_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="15dp"
+                    android:text="*"
+                    android:textColor="@color/red"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/add_txt_deposit"
+                    app:layout_constraintTop_toBottomOf="@id/add_txt_cost_info" />
+
+                <TextView
+                    android:id="@+id/add_txt_deposit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
                     android:text="@string/deposit"
                     android:textColor="@color/darkGray"
                     android:textSize="16sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/add_txt_deposit_star"
                     app:layout_constraintTop_toBottomOf="@id/add_txt_cost_info" />
 
                 <EditText
@@ -98,15 +110,27 @@
                     app:layout_constraintTop_toBottomOf="@+id/add_txt_deposit" />
 
                 <TextView
-                    android:id="@+id/add_txt_rent_month"
+                    android:id="@+id/add_txt_rent_month_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="15dp"
+                    android:text="*"
+                    android:textColor="@color/red"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/add_txt_rent_month"
+                    app:layout_constraintTop_toBottomOf="@id/add_edit_deposit" />
+
+                <TextView
+                    android:id="@+id/add_txt_rent_month"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
                     android:text="@string/rentMonth"
                     android:textColor="@color/darkGray"
                     android:textSize="16sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/add_txt_rent_month_star"
                     app:layout_constraintTop_toBottomOf="@id/add_edit_deposit" />
 
                 <TextView
@@ -148,15 +172,27 @@
                     app:layout_constraintTop_toBottomOf="@+id/add_txt_rent_month" />
 
                 <TextView
-                    android:id="@+id/add_txt_utilities"
+                    android:id="@+id/add_txt_utilities_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="15dp"
+                    android:text="*"
+                    android:textColor="@color/red"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/add_txt_utilities"
+                    app:layout_constraintTop_toBottomOf="@id/add_edit_rent_month" />
+
+                <TextView
+                    android:id="@+id/add_txt_utilities"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
                     android:text="@string/utilities"
                     android:textColor="@color/darkGray"
                     android:textSize="16sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/add_txt_utilities_star"
                     app:layout_constraintTop_toBottomOf="@id/add_edit_rent_month" />
 
                 <TextView
@@ -621,6 +657,7 @@
                     app:layout_constraintLeft_toLeftOf="parent"/>
 
                 <Button
+                    android:id="@+id/add_btn_submit"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginTop="40dp"
@@ -632,6 +669,7 @@
                     android:textStyle="bold"
                     android:textSize="20sp"
                     android:background="@drawable/submit_button_custom"
+                    android:onClick="@{activity::onSubmitButtonClick}"
                     app:layout_constraintTop_toBottomOf="@id/add_edit_detail"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
