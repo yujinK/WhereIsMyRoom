@@ -154,7 +154,7 @@ public class MultiSelectionSpinner extends AppCompatSpinner implements DialogInt
         return sb.toString();
     }
 
-    private String getSelectedItemsAsString() {
+    public String getSelectedItemsAsString() {
         StringBuilder sb = new StringBuilder();
         boolean foundOne = false;
 

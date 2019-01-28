@@ -51,7 +51,7 @@ public class DbOpenHelper {
 
     public long insertColumn(int deposit, int rentMonth, int utilities, String includedUtilities, int buildFloor, int myFloor
                             , String direction, String roomType, float roomSizeM, float roomSizeP, String option
-                            , String animal, String elevator, String parking, String detail) {
+                            , int animal, int elevator, int parking, String detail) {
         ContentValues values = new ContentValues();
         values.put(DataBases.CreateDB.DEPOSIT, deposit);
         values.put(DataBases.CreateDB.RENT_MONTH, rentMonth);
@@ -77,7 +77,7 @@ public class DbOpenHelper {
 
     public boolean updateColumn(int id, int deposit, int rentMonth, int utilities, String includedUtilities, int buildFloor
             , int myFloor, String direction, String roomType, float roomSizeM, float roomSizeP
-            , String option, String animal, String elevator, String parking, String detail) {
+            , String option, int animal, int elevator, int parking, String detail) {
         ContentValues values = new ContentValues();
         values.put(DataBases.CreateDB.DEPOSIT, deposit);
         values.put(DataBases.CreateDB.RENT_MONTH, rentMonth);

@@ -9,6 +9,7 @@
     </string-array>
 
     <string-array name="floors">
+        <item>-</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -42,6 +43,7 @@
     </string-array>
 
     <string-array name="direction">
+        <item>-</item>
         <item>동향</item>
         <item>서향</item>
         <item>남향</item>
@@ -49,6 +51,7 @@
     </string-array>
 
     <string-array name="roomType">
+        <item>-</item>
         <item>원룸(오픈형)</item>
         <item>원룸(분리형)</item>
         <item>원룸(복층형)</item>

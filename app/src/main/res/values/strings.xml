@@ -29,8 +29,8 @@
     <string name="submit">등록</string>
     <string name="alert">알림</string>
     <string name="ok">확인</string>
-    <string name="alertMessage"><font color='red'>보증금, 월세, 관리비</font>는 필수 항목입니다.\n모두 입력했는지 확인해주세요.</string>
 
     <!--activity_add_room.xml-->
     <string name="addToolBar">방 추가</string>
+    <string name="addAlertMessage"><font color='red'>보증금, 월세, 관리비</font>는 필수 항목입니다.\n모두 입력했는지 확인해주세요.</string>
 </resources>

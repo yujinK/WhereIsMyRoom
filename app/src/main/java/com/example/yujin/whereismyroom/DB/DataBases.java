@@ -35,9 +35,9 @@ public final class DataBases {
                 + ROOM_SIZE_M + " real, "
                 + ROOM_SIZE_P + " real, "
                 + OPTION + " text, "
-                + ANIMAL + " text, "
-                + ELEVATOR + " text, "
-                + PARKING + " text, "
+                + ANIMAL + " integer, "
+                + ELEVATOR + " integer, "
+                + PARKING + " integer, "
                 + DETAIL + " text);";
     }
 }

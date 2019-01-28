@@ -1,22 +1,23 @@
 package com.example.yujin.whereismyroom;
 
-import android.content.DialogInterface;
 import android.databinding.DataBindingUtil;
-import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
+import com.example.yujin.whereismyroom.DB.DbOpenHelper;
 import com.example.yujin.whereismyroom.databinding.ActivityAddRoomBinding;
+
+import org.honorato.multistatetogglebutton.ToggleButton;
 
 public class AddRoomActivity extends AppCompatActivity {
 
     ActivityAddRoomBinding binding;
+    int animal, elevator, parking;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +50,9 @@ public class AddRoomActivity extends AppCompatActivity {
         //옵션 spinner 초기화
         initOption();
 
-        //반려동물 toggle button 초기화
+        //MultiToggleButton 초기화
         initAnimal();
+        initElevator();
     }
 
     private void initToolbar() {
@@ -100,19 +102,71 @@ public class AddRoomActivity extends AppCompatActivity {
         binding.addSpinnerOption.setItems(items);
     }
 
-    private void initAnimal() {
-//        binding.addToggleAnimal.setColorRes(R.color.red, R.color.white);
+//    public void onValueChangeAnimal(int position) {
+//        //position 0: 가능, 1: 고양이만, 2: 불가능
+//        animal = position;
+//    }
+
+    public void initAnimal() {
+        binding.addToggleAnimal.setOnValueChangedListener(new ToggleButton.OnValueChangedListener() {
+            @Override
+            public void onValueChanged(int position) {
+                //position 0: 가능, 1: 고양이만, 2: 불가능
+                animal = position;
+            }
+        });
+    }
+
+    public void initElevator() {
+        binding.addToggleElevator.setOnValueChangedListener(new ToggleButton.OnValueChangedListener() {
+            @Override
+            public void onValueChanged(int position) {
+                //position 0: 있음, 1: 없음
+                elevator = position;
+            }
+        });
+    }
+
+    public void initParking() {
+        binding.addToggleParking.setOnValueChangedListener(new ToggleButton.OnValueChangedListener() {
+            @Override
+            public void onValueChanged(int position) {
+                //position 0: 가능, 1: 불가능
+                parking = position;
+            }
+        });
     }
 
     public void onSubmitButtonClick(View view) {
         if (binding.addEditDeposit.getText().length() != 0 &&
                 binding.addEditRentMonth.getText().length() != 0&&
                 binding.addEditDeposit.getText().length() != 0) {
-            //등록 진행
+            //방 추가
+            int deposit = Integer.parseInt(binding.addEditDeposit.getText().toString());
+            int rentMonth = Integer.parseInt(binding.addEditRentMonth.getText().toString());
+            int utilities = Integer.parseInt(binding.addEditUtilities.getText().toString());
+            String includedUtilities = binding.addSpinnerUtilities.getSelectedItemsAsString();
+            int buildFloor = binding.addSpinnerBuildFloor.getSelectedItem().toString().equals("-") ? 0 : Integer.parseInt(binding.addSpinnerBuildFloor.getSelectedItem().toString());
+            int myFloor = binding.addSpinnerMyFloor.getSelectedItem().toString().equals("-") ? 0 : Integer.parseInt(binding.addSpinnerMyFloor.getSelectedItem().toString());
+            String direction = binding.addSpinnerDirection.getSelectedItem().toString().equals("-") ? "" : binding.addSpinnerDirection.getSelectedItem().toString();
+            String roomType = binding.addSpinnerRoomType.getSelectedItem().toString().equals("-") ? "" : binding.addSpinnerRoomType.getSelectedItem().toString();
+            float roomSizeM = binding.addEditRoomSizeM.getText().toString().equals("") ? 0 : Float.parseFloat(binding.addEditRoomSizeM.getText().toString());
+            float roomSizeP = binding.addEditRoomSizeP.getText().toString().equals("") ? 0 : Float.parseFloat(binding.addEditRoomSizeP.getText().toString());
+            String option = binding.addSpinnerOption.getSelectedItemsAsString();
+            String detail = binding.addEditDetail.getText().toString();
+
+            DbOpenHelper helper = new DbOpenHelper(this);
+            helper.open();
+            helper.insertColumn(deposit, rentMonth, utilities, includedUtilities, buildFloor, myFloor, direction, roomType
+                    , roomSizeM, roomSizeP, option, animal, elevator, parking, detail);
+
+            Toast.makeText(this, "방 추가 완료", Toast.LENGTH_SHORT).show();
+            finish();
         } else {
+            //필수 항목 체크 알림
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(R.string.alert);
-            builder.setMessage(R.string.alertMessage);
+            builder.setMessage(R.string.addAlertMessage);
             builder.setPositiveButton(R.string.ok, null);
             builder.show();
         }

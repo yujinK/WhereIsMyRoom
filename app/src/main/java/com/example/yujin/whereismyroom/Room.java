@@ -1,6 +1,7 @@
 package com.example.yujin.whereismyroom;
 
 public class Room {
+    private int id;
     private int deposit;
     private int rentMonth;
     private int utilities;
@@ -16,6 +17,14 @@ public class Room {
     private boolean elevator;
     private boolean parking;
     private String detail;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getDeposit() {
         return deposit;
