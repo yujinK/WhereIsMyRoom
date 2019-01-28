@@ -14,14 +14,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.Toolbar
+        <include
             android:id="@+id/add_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:elevation="4dp"
-            android:theme="@style/Base.ThemeOverlay.AppCompat.ActionBar"
-            app:titleTextColor="@color/white" />
+            layout="@layout/toolbar" />
 
         <ScrollView
             android:layout_width="0dp"

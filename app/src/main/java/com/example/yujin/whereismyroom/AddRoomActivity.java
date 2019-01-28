@@ -53,10 +53,11 @@ public class AddRoomActivity extends AppCompatActivity {
         //MultiToggleButton 초기화
         initAnimal();
         initElevator();
+        initParking();
     }
 
     private void initToolbar() {
-        setSupportActionBar(binding.addToolbar);
+        setSupportActionBar(binding.addToolbar.toolbar);
         getSupportActionBar().setTitle(getString(R.string.addToolBar));
 
         //툴바 왼쪽 back 버튼

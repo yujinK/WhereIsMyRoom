@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setActivity(this);
 
-        setSupportActionBar(binding.mainToolbar);
+        setSupportActionBar(binding.mainToolbar.toolbar);
     }
 
     public void onButtonClick(View view) {
