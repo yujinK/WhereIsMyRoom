@@ -12,7 +12,9 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
         <include
             android:id="@+id/add_toolbar"
@@ -445,6 +447,7 @@
                     android:padding="10dp"
                     android:textColor="@color/darkGray"
                     android:textSize="20sp"
+                    android:inputType="numberDecimal"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/add_txt_room_size"
                     app:layout_constraintWidth_percent="0.4" />
@@ -486,6 +489,7 @@
                     android:padding="10dp"
                     android:textColor="@color/darkGray"
                     android:textSize="20sp"
+                    android:inputType="numberDecimal"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/add_txt_room_size"
                     app:layout_constraintWidth_percent="0.4" />
