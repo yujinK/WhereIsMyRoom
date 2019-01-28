@@ -121,6 +121,8 @@ public class AddRoomActivity extends AppCompatActivity {
             @Override
             public void onValueChanged(int position) {
                 //position 0: 가능, 1: 고양이만, 2: 불가능
+                binding.addRootView.clearFocus();
+                hideKeyboard();
                 animal = position;
             }
         });
@@ -131,6 +133,8 @@ public class AddRoomActivity extends AppCompatActivity {
             @Override
             public void onValueChanged(int position) {
                 //position 0: 있음, 1: 없음
+                binding.addRootView.clearFocus();
+                hideKeyboard();
                 elevator = position;
             }
         });
@@ -141,6 +145,8 @@ public class AddRoomActivity extends AppCompatActivity {
             @Override
             public void onValueChanged(int position) {
                 //position 0: 가능, 1: 불가능
+                binding.addRootView.clearFocus();
+                hideKeyboard();
                 parking = position;
             }
         });
@@ -183,11 +189,11 @@ public class AddRoomActivity extends AppCompatActivity {
 
     public void showKeyboard(EditText input) {
         InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-        imm.showSoftInput(input, 0);
+        imm.showSoftInput(input,0);
     }
 
-    public void hideKeyboard(EditText input) {
+    public void hideKeyboard() {
         InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(input.getWindowToken(), 0);
+        imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
     }
 }
