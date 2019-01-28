@@ -4,6 +4,7 @@ import android.databinding.DataBindingUtil;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
@@ -76,6 +77,16 @@ public class AddRoomActivity extends AppCompatActivity {
     private void initUtilities() {
         String items[] = getResources().getStringArray(R.array.utilities);
         binding.addSpinnerUtilities.setItems(items);
+
+        //TODO: Spinner들 공통 사항 하나로 묶을 수 있는 지 생각해보기
+        binding.addSpinnerUtilities.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                binding.addRootView.clearFocus();
+                hideKeyboard();
+                return false;
+            }
+        });
     }
 
     private void initBuildFloor() {
@@ -83,6 +94,15 @@ public class AddRoomActivity extends AppCompatActivity {
 
         SpinnerAdapter sa = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, items);
         binding.addSpinnerBuildFloor.setAdapter(sa);
+
+        binding.addSpinnerBuildFloor.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                binding.addRootView.clearFocus();
+                hideKeyboard();
+                return false;
+            }
+        });
     }
 
     private void initMyFloor() {
@@ -90,6 +110,15 @@ public class AddRoomActivity extends AppCompatActivity {
 
         SpinnerAdapter sa = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, items);
         binding.addSpinnerMyFloor.setAdapter(sa);
+
+        binding.addSpinnerMyFloor.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                binding.addRootView.clearFocus();
+                hideKeyboard();
+                return false;
+            }
+        });
     }
 
     private void initDirection() {
@@ -97,6 +126,15 @@ public class AddRoomActivity extends AppCompatActivity {
 
         SpinnerAdapter sa = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, items);
         binding.addSpinnerDirection.setAdapter(sa);
+
+        binding.addSpinnerDirection.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                binding.addRootView.clearFocus();
+                hideKeyboard();
+                return false;
+            }
+        });
     }
 
     private void initRoomType() {
@@ -104,11 +142,29 @@ public class AddRoomActivity extends AppCompatActivity {
 
         SpinnerAdapter sa = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, items);
         binding.addSpinnerRoomType.setAdapter(sa);
+
+        binding.addSpinnerRoomType.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                binding.addRootView.clearFocus();
+                hideKeyboard();
+                return false;
+            }
+        });
     }
 
     private void initOption() {
         String items[] = getResources().getStringArray(R.array.option);
         binding.addSpinnerOption.setItems(items);
+
+        binding.addSpinnerOption.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                binding.addRootView.clearFocus();
+                hideKeyboard();
+                return false;
+            }
+        });
     }
 
 //    public void onValueChangeAnimal(int position) {
@@ -178,6 +234,9 @@ public class AddRoomActivity extends AppCompatActivity {
             Toast.makeText(this, "방 추가 완료", Toast.LENGTH_SHORT).show();
             finish();
         } else {
+            binding.addRootView.clearFocus();
+            hideKeyboard();
+
             //필수 항목 체크 알림
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(R.string.alert);
