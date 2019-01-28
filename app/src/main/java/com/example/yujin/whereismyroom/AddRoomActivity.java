@@ -5,7 +5,9 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
@@ -177,5 +179,15 @@ public class AddRoomActivity extends AppCompatActivity {
             builder.setPositiveButton(R.string.ok, null);
             builder.show();
         }
+    }
+
+    public void showKeyboard(EditText input) {
+        InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        imm.showSoftInput(input, 0);
+    }
+
+    public void hideKeyboard(EditText input) {
+        InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(input.getWindowToken(), 0);
     }
 }
