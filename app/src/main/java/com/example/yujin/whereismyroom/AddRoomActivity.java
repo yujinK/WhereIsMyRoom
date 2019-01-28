@@ -63,6 +63,12 @@ public class AddRoomActivity extends AppCompatActivity {
         //툴바 왼쪽 back 버튼
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.baseline_arrow_back_white_24);
+        binding.addToolbar.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void initUtilities() {
