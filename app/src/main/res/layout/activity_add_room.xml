@@ -645,6 +645,8 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="10dp"
+                    android:padding="10dp"
+                    android:gravity="top"
                     android:textColor="@color/darkGray"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_border_edittext"
