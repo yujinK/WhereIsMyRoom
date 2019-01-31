@@ -6,12 +6,13 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardElevation="2dp">
+        android:layout_height="wrap_content">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
 
             <ImageView
                 android:id="@+id/item_img_room"
@@ -80,6 +81,11 @@
                 tools:text="역삼"/>
 
         </android.support.constraint.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ccc"/>
 
     </android.support.v7.widget.CardView>
 
