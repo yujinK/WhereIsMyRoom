@@ -10,12 +10,12 @@ public class Room {
     private int myFloor;
     private String direction;
     private String roomType;
-    private float roomSizeM;
-    private float roomSizeP;
+    private Double roomSizeM;
+    private Double roomSizeP;
     private String option;
-    private String animal;
-    private boolean elevator;
-    private boolean parking;
+    private int animal;
+    private int elevator;
+    private int parking;
     private String detail;
 
     public int getId() {
@@ -90,19 +90,19 @@ public class Room {
         this.roomType = roomType;
     }
 
-    public float getRoomSizeM() {
+    public Double getRoomSizeM() {
         return roomSizeM;
     }
 
-    public void setRoomSizeM(float roomSizeM) {
+    public void setRoomSizeM(Double roomSizeM) {
         this.roomSizeM = roomSizeM;
     }
 
-    public float getRoomSizeP() {
+    public Double getRoomSizeP() {
         return roomSizeP;
     }
 
-    public void setRoomSizeP(float roomSizeP) {
+    public void setRoomSizeP(Double roomSizeP) {
         this.roomSizeP = roomSizeP;
     }
 
@@ -114,27 +114,27 @@ public class Room {
         this.option = option;
     }
 
-    public String getAnimal() {
+    public int getAnimal() {
         return animal;
     }
 
-    public void setAnimal(String animal) {
+    public void setAnimal(int animal) {
         this.animal = animal;
     }
 
-    public boolean isElevator() {
+    public int getElevator() {
         return elevator;
     }
 
-    public void setElevator(boolean elevator) {
+    public void setElevator(int elevator) {
         this.elevator = elevator;
     }
 
-    public boolean isParking() {
+    public int getParking() {
         return parking;
     }
 
-    public void setParking(boolean parking) {
+    public void setParking(int parking) {
         this.parking = parking;
     }
 
