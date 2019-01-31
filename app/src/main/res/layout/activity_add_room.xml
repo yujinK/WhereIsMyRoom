@@ -34,8 +34,8 @@
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp">
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
 
                 <ImageView
                     android:id="@+id/add_img_room"
@@ -89,7 +89,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/rounded_border_edittext"
-                    android:inputType="numberDecimal"
+                    android:inputType="number"
                     android:maxLength="30"
                     android:padding="10dp"
                     android:textColor="@color/darkGray"
@@ -151,7 +151,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/rounded_border_edittext"
-                    android:inputType="numberDecimal"
+                    android:inputType="number"
                     android:maxLength="30"
                     android:padding="10dp"
                     android:textColor="@color/darkGray"
@@ -213,7 +213,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/rounded_border_edittext"
-                    android:inputType="numberDecimal"
+                    android:inputType="number"
                     android:maxLength="30"
                     android:padding="10dp"
                     android:textColor="@color/darkGray"
@@ -663,7 +663,7 @@
                 <Button
                     android:id="@+id/add_btn_submit"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:layout_marginTop="40dp"
                     android:layout_marginBottom="20dp"
                     android:layout_marginLeft="50dp"
