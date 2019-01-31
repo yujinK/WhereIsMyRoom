@@ -21,6 +21,8 @@ public class AddRoomActivity extends AppCompatActivity {
 
     ActivityAddRoomBinding binding;
     int animal, elevator, parking;
+    public static final double EXCHANGE_P = 0.3025; // 평으로 환산, 1제곱미터 = 0.3025평
+    public static final double EXCHANGE_M = 3.3;    // 제곱미터로 환산, 1평 = 약 3.3제곱미터
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +59,31 @@ public class AddRoomActivity extends AppCompatActivity {
         initAnimal();
         initElevator();
         initParking();
+
+        //TODO: 입력하자마자 자동 변환은 생각 좀 해보기
+        binding.addEditRoomSizeM.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                // 제곱미터를 평으로 환산(소수점 둘째자리 반올림)
+                double input = binding.addEditRoomSizeM.getText().toString().equals("") ? 0 : Double.parseDouble(binding.addEditRoomSizeM.getText().toString());
+
+                if (!hasFocus && input != 0) {
+                    binding.addEditRoomSizeP.setText(String.valueOf(Math.round(input * EXCHANGE_P * 100) / 100.0));
+                }
+            }
+        });
+
+        binding.addEditRoomSizeP.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                // 평을 제곱미터로 환산(소수점 둘째자리 반올림)
+                double input = binding.addEditRoomSizeP.getText().toString().equals("") ? 0 : Double.parseDouble(binding.addEditRoomSizeP.getText().toString());
+
+                if (!hasFocus && input != 0) {
+                    binding.addEditRoomSizeM.setText(String.valueOf(Math.round(input * EXCHANGE_M * 100) / 100.0));
+                }
+            }
+        });
     }
 
     private void initToolbar() {
@@ -221,8 +248,8 @@ public class AddRoomActivity extends AppCompatActivity {
             int myFloor = binding.addSpinnerMyFloor.getSelectedItem().toString().equals("-") ? 0 : Integer.parseInt(binding.addSpinnerMyFloor.getSelectedItem().toString());
             String direction = binding.addSpinnerDirection.getSelectedItem().toString().equals("-") ? "" : binding.addSpinnerDirection.getSelectedItem().toString();
             String roomType = binding.addSpinnerRoomType.getSelectedItem().toString().equals("-") ? "" : binding.addSpinnerRoomType.getSelectedItem().toString();
-            float roomSizeM = binding.addEditRoomSizeM.getText().toString().equals("") ? 0 : Float.parseFloat(binding.addEditRoomSizeM.getText().toString());
-            float roomSizeP = binding.addEditRoomSizeP.getText().toString().equals("") ? 0 : Float.parseFloat(binding.addEditRoomSizeP.getText().toString());
+            double roomSizeM = binding.addEditRoomSizeM.getText().toString().equals("") ? 0 : Float.parseFloat(binding.addEditRoomSizeM.getText().toString());
+            double roomSizeP = binding.addEditRoomSizeP.getText().toString().equals("") ? 0 : Float.parseFloat(binding.addEditRoomSizeP.getText().toString());
             String option = binding.addSpinnerOption.getSelectedItemsAsString();
             String detail = binding.addEditDetail.getText().toString();
 
