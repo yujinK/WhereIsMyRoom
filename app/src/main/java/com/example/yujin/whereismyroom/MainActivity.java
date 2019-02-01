@@ -40,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
+
+        loadRooms();
+        binding.mainRecyclerview.getAdapter().notifyDataSetChanged();
     }
 
     public void loadRooms() {
