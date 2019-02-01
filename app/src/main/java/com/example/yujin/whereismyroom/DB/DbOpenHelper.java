@@ -72,7 +72,8 @@ public class DbOpenHelper {
     }
 
     public Cursor selectColumns() {
-        return mDB.query(DataBases.CreateDB.TABLE_NAME, null, null, null, null, null, null);
+        Cursor c = mDB.rawQuery("SELECT * FROM ROOM ORDER BY _ID DESC;", null);
+        return c;
     }
 
     public boolean updateColumn(int id, int deposit, int rentMonth, int utilities, String includedUtilities, int buildFloor

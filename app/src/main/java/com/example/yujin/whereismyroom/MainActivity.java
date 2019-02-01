@@ -46,13 +46,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadRooms() {
-        getRooms();
-    }
-
-    public void getRooms() {
         DbOpenHelper helper = new DbOpenHelper(this);
         helper.open();
         Cursor cursor = helper.selectColumns();
+
+        roomList.clear();
 
         while(cursor.moveToNext()) {
             String id = cursor.getString(cursor.getColumnIndex("_id"));
@@ -73,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             String detail = cursor.getString(cursor.getColumnIndex("detail"));
 
             roomList.add(new Room(id, deposit, rentMonth, utilities, includedUtilities, buildFloor, myFloor
-                        , direction, roomType, roomSizeM, roomSizeP, option, animal, elevator, parking, detail));
+                    , direction, roomType, roomSizeM, roomSizeP, option, animal, elevator, parking, detail));
         }
     }
 
