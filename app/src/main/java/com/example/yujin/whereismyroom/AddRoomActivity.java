@@ -1,7 +1,8 @@
 package com.example.yujin.whereismyroom;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.databinding.DataBindingUtil;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -31,6 +32,11 @@ public class AddRoomActivity extends AppCompatActivity {
         binding.setActivity(this);
 
         init();
+    }
+
+    @Override
+    public void onBackPressed() {
+        checkExit();
     }
 
     private void init() {
@@ -96,7 +102,7 @@ public class AddRoomActivity extends AppCompatActivity {
         binding.addToolbar.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                checkExit();
             }
         });
     }
@@ -194,11 +200,6 @@ public class AddRoomActivity extends AppCompatActivity {
         });
     }
 
-//    public void onValueChangeAnimal(int position) {
-//        //position 0: 가능, 1: 고양이만, 2: 불가능
-//        animal = position;
-//    }
-
     public void initAnimal() {
         binding.addToggleAnimal.setOnValueChangedListener(new ToggleButton.OnValueChangedListener() {
             @Override
@@ -267,9 +268,28 @@ public class AddRoomActivity extends AppCompatActivity {
             //필수 항목 체크 알림
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(R.string.alert);
-            builder.setMessage(R.string.addAlertMessage);
+            builder.setMessage(R.string.addInputAlertMessage);
             builder.setPositiveButton(R.string.ok, null);
             builder.show();
+        }
+    }
+
+    public void checkExit() {
+        if (binding.addEditDeposit.getText().length() != 0 || binding.addEditRentMonth.getText().length() != 0
+                || binding.addEditUtilities.getText().length() != 0) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(AddRoomActivity.this);
+            builder.setTitle(R.string.alert);
+            builder.setMessage(R.string.addExitAlertMessage);
+            builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            });
+            builder.setNegativeButton(R.string.cancel, null);
+            builder.show();
+        } else {
+            finish();
         }
     }
 
