@@ -28,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setActivity(this);
 
+        init();
+    }
+
+    public void init() {
         setSupportActionBar(binding.mainToolbar.toolbar);
 
         loadRooms();
