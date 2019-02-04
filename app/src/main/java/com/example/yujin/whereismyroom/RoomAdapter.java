@@ -1,6 +1,7 @@
 package com.example.yujin.whereismyroom;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -35,10 +36,10 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder
         holder.imgRoom.setImageResource(R.drawable.room_sample);    // TODO: 이미지 추가 할 것
 
         if (roomList.get(position).rentMonth.equals("0")) {
-            holder.rentType.setText("전세");
+            holder.rentType.setText(R.string.rentYear);
             holder.rentCost.setText(calDeposit(String.valueOf(roomList.get(position).deposit)));
         } else {
-            holder.rentType.setText("월세");
+            holder.rentType.setText(R.string.rentMonth);
             holder.rentCost.setText(calDeposit(roomList.get(position).deposit) + "/" + roomList.get(position).rentMonth);
         }
 
@@ -52,6 +53,14 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder
         // TODO: 지하철 추가
         holder.imgSubwayLine.setImageResource(R.drawable.line2);
         holder.subwayStation.setText("역삼");
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), DetailRoomActivity.class);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

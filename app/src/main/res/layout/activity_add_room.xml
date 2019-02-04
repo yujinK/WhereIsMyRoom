@@ -51,7 +51,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:text="@string/costInfo"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -76,7 +76,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:text="@string/deposit"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="16sp"
                     app:layout_constraintLeft_toRightOf="@id/add_txt_deposit_star"
                     app:layout_constraintTop_toBottomOf="@id/add_txt_cost_info" />
@@ -92,7 +92,7 @@
                     android:inputType="number"
                     android:maxLength="30"
                     android:padding="10dp"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="20sp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/add_txt_deposit" />
@@ -104,7 +104,7 @@
                     android:layout_marginRight="10dp"
                     android:gravity="center_vertical"
                     android:text="@string/currencyUnit"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="16sp"
                     app:layout_constraintRight_toRightOf="@+id/add_edit_deposit"
                     app:layout_constraintTop_toBottomOf="@+id/add_txt_deposit" />
@@ -128,7 +128,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:text="@string/rentMonth"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="16sp"
                     app:layout_constraintLeft_toRightOf="@id/add_txt_rent_month_star"
                     app:layout_constraintTop_toBottomOf="@id/add_edit_deposit" />
@@ -154,7 +154,7 @@
                     android:inputType="number"
                     android:maxLength="30"
                     android:padding="10dp"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="20sp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/add_txt_rent_month" />
@@ -166,7 +166,7 @@
                     android:layout_marginRight="10dp"
                     android:gravity="center_vertical"
                     android:text="@string/currencyUnit"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="16sp"
                     app:layout_constraintRight_toRightOf="@+id/add_edit_rent_month"
                     app:layout_constraintTop_toBottomOf="@+id/add_txt_rent_month" />
@@ -190,7 +190,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:text="@string/utilities"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="16sp"
                     app:layout_constraintLeft_toRightOf="@id/add_txt_utilities_star"
                     app:layout_constraintTop_toBottomOf="@id/add_edit_rent_month" />
@@ -216,7 +216,7 @@
                     android:inputType="number"
                     android:maxLength="30"
                     android:padding="10dp"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="20sp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/add_txt_utilities" />
@@ -228,7 +228,7 @@
                     android:layout_marginRight="10dp"
                     android:gravity="center_vertical"
                     android:text="@string/currencyUnit"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="16sp"
                     app:layout_constraintRight_toRightOf="@+id/add_edit_utilities"
                     app:layout_constraintTop_toBottomOf="@+id/add_txt_utilities" />
@@ -240,7 +240,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="15dp"
                     android:text="@string/includedUtilities"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="16sp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/add_edit_utilities" />
@@ -262,7 +262,7 @@
                         android:layout_height="50dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
-                        android:textColor="@color/darkGray"
+                        android:textColor="@color/dimGray"
                         android:textSize="16sp"/>
                 </RelativeLayout>
 
@@ -273,7 +273,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="40dp"
                     android:text="@string/floor"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -287,7 +287,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="15dp"
                     android:text="@string/buildFloor"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="16sp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/add_txt_floor" />
@@ -309,7 +309,7 @@
                         android:layout_height="50dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
-                        android:textColor="@color/darkGray"
+                        android:textColor="@color/dimGray"
                         android:textSize="16sp"/>
 
                 </RelativeLayout>
@@ -321,7 +321,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="15dp"
                     android:text="@string/myFloor"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="16sp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/add_layout_build_floor" />
@@ -343,7 +343,7 @@
                         android:layout_height="50dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
-                        android:textColor="@color/darkGray"
+                        android:textColor="@color/dimGray"
                         android:textSize="16sp" />
                 </RelativeLayout>
 
@@ -354,7 +354,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="40dp"
                     android:text="@string/direction"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -377,7 +377,7 @@
                         android:layout_height="50dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
-                        android:textColor="@color/darkGray"
+                        android:textColor="@color/dimGray"
                         android:textSize="16sp" />
                 </RelativeLayout>
 
@@ -388,7 +388,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="40dp"
                     android:text="@string/roomType"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -411,7 +411,7 @@
                         android:layout_height="50dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
-                        android:textColor="@color/darkGray"
+                        android:textColor="@color/dimGray"
                         android:textSize="16sp" />
                 </RelativeLayout>
 
@@ -422,7 +422,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="40dp"
                     android:text="@string/roomSize"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -448,7 +448,7 @@
                     android:background="@drawable/rounded_border_edittext"
                     android:maxLength="30"
                     android:padding="10dp"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="20sp"
                     android:inputType="numberDecimal"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -462,7 +462,7 @@
                     android:layout_marginRight="10dp"
                     android:gravity="center_vertical"
                     android:text="@string/roomSizeM"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="16sp"
                     app:layout_constraintRight_toRightOf="@+id/add_edit_room_size_m"
                     app:layout_constraintTop_toBottomOf="@+id/add_txt_room_size" />
@@ -473,7 +473,7 @@
                     android:layout_marginTop="8dp"
                     android:gravity="center_vertical|center_horizontal"
                     android:text="@string/roomArrow"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="30sp"
                     app:layout_constraintLeft_toRightOf="@id/add_edit_room_size_m"
                     app:layout_constraintRight_toLeftOf="@+id/add_edit_room_size_p"
@@ -490,7 +490,7 @@
                     android:background="@drawable/rounded_border_edittext"
                     android:maxLength="30"
                     android:padding="10dp"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="20sp"
                     android:inputType="numberDecimal"
                     app:layout_constraintRight_toRightOf="parent"
@@ -504,7 +504,7 @@
                     android:layout_marginRight="10dp"
                     android:gravity="center_vertical"
                     android:text="@string/roomSizeP"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="16sp"
                     app:layout_constraintRight_toRightOf="@+id/add_edit_room_size_p"
                     app:layout_constraintTop_toBottomOf="@+id/add_txt_room_size" />
@@ -516,7 +516,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="40dp"
                     android:text="@string/option"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -539,7 +539,7 @@
                         android:layout_height="50dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
-                        android:textColor="@color/darkGray"
+                        android:textColor="@color/dimGray"
                         android:textSize="16sp" />
                 </RelativeLayout>
 
@@ -550,7 +550,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="40dp"
                     android:text="@string/animal"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -564,7 +564,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="10dp"
                     app:mstbSecondaryColor="@color/white"
-                    app:mstbPrimaryColor="@color/darkGray"
+                    app:mstbPrimaryColor="@color/dimGray"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/add_txt_animal"
                     app:values="@array/animal" />
@@ -576,7 +576,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="40dp"
                     android:text="@string/elevator"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -590,7 +590,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="10dp"
                     app:mstbSecondaryColor="@color/white"
-                    app:mstbPrimaryColor="@color/darkGray"
+                    app:mstbPrimaryColor="@color/dimGray"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/add_txt_elevator"
                     app:values="@array/elevator" />
@@ -602,7 +602,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="40dp"
                     android:text="@string/parking"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -616,7 +616,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="10dp"
                     app:mstbSecondaryColor="@color/white"
-                    app:mstbPrimaryColor="@color/darkGray"
+                    app:mstbPrimaryColor="@color/dimGray"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/add_txt_parking"
                     app:values="@array/parking" />
@@ -628,7 +628,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="40dp"
                     android:text="@string/detailInfo"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -654,7 +654,7 @@
                     android:layout_marginRight="10dp"
                     android:padding="10dp"
                     android:gravity="top"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/dimGray"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_border_edittext"
                     app:layout_constraintTop_toBottomOf="@id/add_txt_detail_info"

@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".DetailRoomActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/detail_toolbar"
+            layout="@layout/toolbar" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            android:background="@color/lightGray"
+            app:layout_constraintTop_toBottomOf="@+id/detail_toolbar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/detail_img_room"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:src="@drawable/room_sample"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/detail_txt_rent_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="3dp"
+                    android:textSize="24sp"
+                    android:textColor="@color/dimGray"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_img_room"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/detail_txt_rent_cost"
+                    tools:text="전세"/>
+
+                <TextView
+                    android:id="@+id/detail_txt_rent_cost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="3dp"
+                    android:textSize="24sp"
+                    android:textColor="@color/dimGray"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_img_room"
+                    app:layout_constraintLeft_toRightOf="@+id/detail_txt_rent_type"
+                    tools:text="1억 3000"/>
+
+                <TableLayout
+                    android:id="@+id/detail_table"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@color/silver2"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_txt_rent_type"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="6">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/silver"
+                            android:textSize="14sp"
+                            android:textColor="@color/darkGray"
+                            tools:text="관리비"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/white"
+                            android:textSize="14sp"
+                            android:textColor="@color/dimGray"
+                            tools:text="3만원 (수도, 인터넷, TV)"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="6">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/silver"
+                            android:textSize="14sp"
+                            android:textColor="@color/darkGray"
+                            tools:text="층/건물층수"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/white"
+                            android:textSize="14sp"
+                            android:textColor="@color/dimGray"
+                            tools:text="3층 / 8층"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="6">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/silver"
+                            android:textSize="14sp"
+                            android:textColor="@color/darkGray"
+                            tools:text="크기"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/white"
+                            android:textSize="14sp"
+                            android:textColor="@color/dimGray"
+                            tools:text="19.83m2 / 6평"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="6">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/silver"
+                            android:textSize="14sp"
+                            android:textColor="@color/darkGray"
+                            tools:text="방향"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/white"
+                            android:textSize="14sp"
+                            android:textColor="@color/dimGray"
+                            tools:text="-"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="6">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/silver"
+                            android:textSize="14sp"
+                            android:textColor="@color/darkGray"
+                            tools:text="구조"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/white"
+                            android:textSize="14sp"
+                            android:textColor="@color/dimGray"
+                            tools:text="오픈형 원룸"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="6">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/silver"
+                            android:textSize="14sp"
+                            android:textColor="@color/darkGray"
+                            tools:text="옵션"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/white"
+                            android:textSize="14sp"
+                            android:textColor="@color/dimGray"
+                            tools:text="에어컨\n냉장고\n세탁기\n가스레인지\n옷장\n신발장\n싱크대"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="6">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/silver"
+                            android:textSize="14sp"
+                            android:textColor="@color/darkGray"
+                            tools:text="주차"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/white"
+                            android:textSize="14sp"
+                            android:textColor="@color/dimGray"
+                            tools:text="가능"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="6">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/silver"
+                            android:textSize="14sp"
+                            android:textColor="@color/darkGray"
+                            tools:text="엘리베이터"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/white"
+                            android:textSize="14sp"
+                            android:textColor="@color/dimGray"
+                            tools:text="있음"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="6">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/silver"
+                            android:textSize="14sp"
+                            android:textColor="@color/darkGray"
+                            tools:text="반려동물"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/white"
+                            android:textSize="14sp"
+                            android:textColor="@color/dimGray"
+                            tools:text="가능"/>
+                    </TableRow>
+
+                </TableLayout>
+
+                <TextView
+                    android:id="@+id/detail_txt_room_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="18sp"
+                    android:textColor="@color/dimGray"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_table"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    tools:text="상세정보"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:padding="10dp"
+                    android:background="@drawable/detail_textview_shape"
+                    android:textSize="14sp"
+                    android:textColor="@color/dimGray"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_txt_room_detail"
+                    tools:text="공동 현관 비밀번호, CCTV 설치\n근처 편의점, 슈퍼 있음\n수압 ㅇㅋ"/>
+
+            </android.support.constraint.ConstraintLayout>
+
+        </ScrollView>
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>
