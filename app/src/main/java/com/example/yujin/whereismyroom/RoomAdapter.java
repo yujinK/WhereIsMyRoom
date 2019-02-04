@@ -1,5 +1,6 @@
 package com.example.yujin.whereismyroom;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,13 +9,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder> {
     private List<Room> roomList;
+    private Context context;
+    private static RecyclerViewClickListener itemListener;
 
-    RoomAdapter(List<Room> roomList) {
+    RoomAdapter(Context context, RecyclerViewClickListener itemListener, List<Room> roomList) {
+        this.context = context;
+        this.itemListener = itemListener;
         this.roomList = roomList;
     }
 
@@ -71,7 +75,7 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder
         return result;
     }
 
-    public static class RoomViewHolder extends RecyclerView.ViewHolder {
+    public static class RoomViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener {
         ImageView imgRoom;
         TextView rentType;
         TextView rentCost;
@@ -87,6 +91,13 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder
             roomDetail = view.findViewById(R.id.item_txt_room_detail);
             imgSubwayLine = view.findViewById(R.id.item_img_subway_line);
             subwayStation = view.findViewById(R.id.item_txt_subway_station);
+            view.setOnLongClickListener(this);
+        }
+
+        @Override
+        public boolean onLongClick(View view) {
+            itemListener.recyclerViewListClicked(view, this.getLayoutPosition());
+            return false;
         }
     }
 }
