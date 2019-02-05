@@ -10,11 +10,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.yujin.whereismyroom.common.Util;
 import com.example.yujin.whereismyroom.databinding.ActivityDetailRoomBinding;
 
 public class DetailRoomActivity extends AppCompatActivity {
 
     ActivityDetailRoomBinding binding;
+    Util util;
+    Room room;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,10 +38,100 @@ public class DetailRoomActivity extends AppCompatActivity {
         binding.detailToolbar.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //exit
                 finish();
             }
         });
+
+        util = new Util();
+        room = (Room) getIntent().getSerializableExtra("room");
+
+        setRoomData();
+    }
+
+    public void setRoomData() {
+        //전월세 셋팅
+        if (room.rentMonth.equals("0")) {
+            //전세
+            binding.detailTxtRentType.setText(R.string.rentYear);
+            binding.detailTxtRentCost.setText(util.calDeposit(room.deposit));
+        } else {
+            //월세
+            binding.detailTxtRentType.setText(R.string.rentMonth);
+            binding.detailTxtRentCost.setText(String.format("%s / %s", room.deposit, room.rentMonth));
+        }
+
+        //Table에 데이터 셋팅
+        if (room.utilities.equals("0")) {
+            binding.detailTxtTableUtilities.setText("-");
+        } else {
+            String utilities = String.format("%s%s ", room.utilities, getString(R.string.currencyUnit));
+
+            if (room.includedUtilities.length() != 0) {
+                utilities += "(" + room.includedUtilities + ")";
+            }
+
+            binding.detailTxtTableUtilities.setText(utilities);
+        }
+
+        if (room.myFloor.equals("-") && room.myFloor.equals("-")) {
+            binding.detailTxtTableFloor.setText("-");
+        } else {
+            binding.detailTxtTableFloor.setText(String.format("%s%s / %s%s", room.myFloor, getString(R.string.detailFloor), room.buildFloor, getString(R.string.detailFloor)));
+        }
+
+        if (room.roomSizeM.length() == 0 && room.roomSizeP.length() == 0) {
+            binding.detailTxtTableSize.setText("-");
+        } else {
+            binding.detailTxtTableSize.setText(String.format("%s%s / %s%s", room.roomSizeM, getString(R.string.roomSizeM) , room.roomSizeP, getString(R.string.roomSizeP)));
+        }
+
+        binding.detailTxtTableDirection.setText(room.direction);
+        binding.detailTxtTableType.setText(room.roomType);
+
+        if (room.option.length() == 0) {
+            binding.detailTxtTableOption.setText("-");
+        } else {
+            String[] s = room.option.split(", ");
+            String option = "";
+
+            for (int i=0; i<s.length; i++) {
+                option += s[i];
+
+                if (i != s.length-1) {
+                    option += "\n";
+                }
+            }
+
+            binding.detailTxtTableOption.setText(option);
+        }
+
+        if (room.parking == null) {
+            binding.detailTxtTableParking.setText("-");
+        } else if (room.parking.equals("0")) {
+            binding.detailTxtTableParking.setText("가능");
+        } else if (room.parking.equals("1")) {
+            binding.detailTxtTableParking.setText("불가능");
+        }
+
+        if (room.elevator == null) {
+            binding.detailTxtTableElevator.setText("-");
+        } else if (room.elevator.equals("0")) {
+            binding.detailTxtTableElevator.setText("있음");
+        } else if (room.elevator.equals("1")) {
+            binding.detailTxtTableElevator.setText("없음");
+        }
+
+        if (room.animal == null) {
+            binding.detailTxtTableAnimal.setText("-");
+        } else if (room.animal.equals("0")) {
+            binding.detailTxtTableAnimal.setText("가능");
+        } else if (room.animal.equals("1")) {
+            binding.detailTxtTableAnimal.setText("고양이만");
+        } else if (room.animal.equals("2")) {
+            binding.detailTxtTableAnimal.setText("불가능");
+        }
+
+        binding.detailTxtRoomDetailContent.setText(room.detail);
     }
 
     @Override

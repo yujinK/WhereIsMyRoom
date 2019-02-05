@@ -164,7 +164,7 @@ public class MultiSelectionSpinner extends AppCompatSpinner implements DialogInt
                     sb.append(", ");
                 }
                 foundOne = true;
-                sb.append(mSelection[i]);
+                sb.append(_items[i]);
             }
         }
 

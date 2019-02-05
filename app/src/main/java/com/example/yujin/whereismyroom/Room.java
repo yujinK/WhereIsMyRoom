@@ -1,6 +1,8 @@
 package com.example.yujin.whereismyroom;
 
-public class Room {
+import java.io.Serializable;
+
+public class Room implements Serializable {
     public String id;
     public String deposit;
     public String rentMonth;

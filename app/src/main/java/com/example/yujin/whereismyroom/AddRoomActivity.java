@@ -21,7 +21,7 @@ import org.honorato.multistatetogglebutton.ToggleButton;
 public class AddRoomActivity extends AppCompatActivity {
 
     ActivityAddRoomBinding binding;
-    int animal, elevator, parking;
+    String animal, elevator, parking;
     public static final double EXCHANGE_P = 0.3025; // 평으로 환산, 1제곱미터 = 0.3025평
     public static final double EXCHANGE_M = 3.3;    // 제곱미터로 환산, 1평 = 약 3.3제곱미터
 
@@ -207,7 +207,7 @@ public class AddRoomActivity extends AppCompatActivity {
                 //position 0: 가능, 1: 고양이만, 2: 불가능
                 binding.addRootView.clearFocus();
                 hideKeyboard();
-                animal = position;
+                animal = String.valueOf(position);
             }
         });
     }
@@ -219,7 +219,7 @@ public class AddRoomActivity extends AppCompatActivity {
                 //position 0: 있음, 1: 없음
                 binding.addRootView.clearFocus();
                 hideKeyboard();
-                elevator = position;
+                elevator = String.valueOf(position);
             }
         });
     }
@@ -231,7 +231,7 @@ public class AddRoomActivity extends AppCompatActivity {
                 //position 0: 가능, 1: 불가능
                 binding.addRootView.clearFocus();
                 hideKeyboard();
-                parking = position;
+                parking = String.valueOf(position);
             }
         });
     }
