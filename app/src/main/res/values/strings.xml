@@ -41,4 +41,6 @@
 
     <!--activity_detail_room.xml-->
     <string name="detailToolBar">방 정보</string>
+    <string name="detailRoomFloor">층/건물층수</string>
+    <string name="detailRoomType">구조</string>
 </resources>

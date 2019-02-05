@@ -42,13 +42,14 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="3dp"
                     android:textSize="24sp"
+                    android:textStyle="bold"
                     android:textColor="@color/dimGray"
                     app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintTop_toBottomOf="@+id/detail_img_room"
                     app:layout_constraintBottom_toTopOf="@+id/detail_table"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@+id/detail_txt_rent_cost"
-                    android:text="전세"/>
+                    tools:text="전세"/>
 
                 <TextView
                     android:id="@+id/detail_txt_rent_cost"
@@ -57,13 +58,14 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="3dp"
                     android:textSize="24sp"
+                    android:textStyle="bold"
                     android:textColor="@color/dimGray"
                     app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintTop_toBottomOf="@+id/detail_img_room"
                     app:layout_constraintBottom_toTopOf="@+id/detail_table"
                     app:layout_constraintLeft_toRightOf="@+id/detail_txt_rent_type"
                     app:layout_constraintRight_toRightOf="parent"
-                    android:text="1억 3000"/>
+                    tools:text="1억 3000"/>
 
                 <TableLayout
                     android:id="@+id/detail_table"
@@ -77,228 +79,227 @@
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:weightSum="6">
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:layout_weight="2"
                             android:layout_marginTop="1dp"
                             android:padding="10dp"
                             android:background="@color/silver"
                             android:textSize="14sp"
                             android:textColor="@color/darkGray"
-                            android:text="관리비"/>
+                            android:text="@string/utilities"/>
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:layout_weight="4"
                             android:layout_marginTop="1dp"
                             android:padding="10dp"
                             android:background="@color/white"
                             android:textSize="14sp"
                             android:textColor="@color/dimGray"
-                            android:text="3만원 (수도, 인터넷, TV)"/>
+                            tools:text="3만원 (수도, 인터넷, TV)"/>
                     </TableRow>
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:weightSum="6">
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:layout_weight="2"
                             android:layout_marginTop="1dp"
                             android:padding="10dp"
                             android:background="@color/silver"
                             android:textSize="14sp"
                             android:textColor="@color/darkGray"
-                            android:text="층/건물층수"/>
+                            android:text="@string/detailRoomFloor"/>
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:layout_weight="4"
                             android:layout_marginTop="1dp"
                             android:padding="10dp"
                             android:background="@color/white"
                             android:textSize="14sp"
                             android:textColor="@color/dimGray"
-                            android:text="3층 / 8층"/>
+                            tools:text="3층 / 8층"/>
                     </TableRow>
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:weightSum="6">
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:layout_weight="2"
                             android:layout_marginTop="1dp"
                             android:padding="10dp"
                             android:background="@color/silver"
                             android:textSize="14sp"
                             android:textColor="@color/darkGray"
-                            android:text="크기"/>
+                            android:text="@string/roomSize"/>
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:layout_weight="4"
                             android:layout_marginTop="1dp"
                             android:padding="10dp"
                             android:background="@color/white"
                             android:textSize="14sp"
                             android:textColor="@color/dimGray"
-                            android:text="19.83m2 / 6평"/>
+                            tools:text="19.83m2 / 6평"/>
                     </TableRow>
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:weightSum="6">
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:layout_weight="2"
                             android:layout_marginTop="1dp"
                             android:padding="10dp"
                             android:background="@color/silver"
                             android:textSize="14sp"
                             android:textColor="@color/darkGray"
-                            android:text="방향"/>
+                            android:text="@string/direction"/>
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:layout_weight="4"
                             android:layout_marginTop="1dp"
                             android:padding="10dp"
                             android:background="@color/white"
                             android:textSize="14sp"
                             android:textColor="@color/dimGray"
-                            android:text="-"/>
+                            tools:text="-"/>
                     </TableRow>
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:weightSum="6">
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:layout_weight="2"
                             android:layout_marginTop="1dp"
                             android:padding="10dp"
                             android:background="@color/silver"
                             android:textSize="14sp"
                             android:textColor="@color/darkGray"
-                            android:text="구조"/>
+                            android:text="@string/detailRoomType"/>
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:layout_weight="4"
                             android:layout_marginTop="1dp"
                             android:padding="10dp"
                             android:background="@color/white"
                             android:textSize="14sp"
                             android:textColor="@color/dimGray"
-                            android:text="오픈형 원룸"/>
+                            tools:text="오픈형 원룸"/>
                     </TableRow>
 
-                    <!--TODO: 옵션 어떻게 처리할 지 생각해보기(Table? 따로 빼기?)-->
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:weightSum="6">
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:layout_weight="2"
                             android:layout_marginTop="1dp"
                             android:padding="10dp"
                             android:background="@color/silver"
                             android:textSize="14sp"
                             android:textColor="@color/darkGray"
-                            android:text="옵션"/>
+                            android:text="@string/option"/>
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:layout_weight="4"
                             android:layout_marginTop="1dp"
                             android:padding="10dp"
                             android:background="@color/white"
                             android:textSize="14sp"
                             android:textColor="@color/dimGray"
-                            android:text="에어컨\n냉장고\n세탁기\n가스레인지\n옷장\n신발장\n싱크대"/>
+                            tools:text="에어컨\n냉장고\n세탁기\n가스레인지\n옷장\n신발장\n싱크대"/>
                     </TableRow>
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:weightSum="6">
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:layout_weight="2"
                             android:layout_marginTop="1dp"
                             android:padding="10dp"
                             android:background="@color/silver"
                             android:textSize="14sp"
                             android:textColor="@color/darkGray"
-                            android:text="주차"/>
+                            android:text="@string/parking"/>
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:layout_marginTop="1dp"
-                            android:padding="10dp"
+                            android:layout_weight="4"
                             android:background="@color/white"
-                            android:textSize="14sp"
+                            android:padding="10dp"
                             android:textColor="@color/dimGray"
-                            android:text="가능"/>
+                            android:textSize="14sp"
+                            tools:text="가능" />
                     </TableRow>
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:weightSum="6">
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:layout_weight="2"
                             android:layout_marginTop="1dp"
                             android:padding="10dp"
                             android:background="@color/silver"
                             android:textSize="14sp"
                             android:textColor="@color/darkGray"
-                            android:text="엘리베이터"/>
+                            android:text="@string/elevator"/>
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:layout_weight="4"
                             android:layout_marginTop="1dp"
                             android:padding="10dp"
                             android:background="@color/white"
                             android:textSize="14sp"
                             android:textColor="@color/dimGray"
-                            android:text="있음"/>
+                            tools:text="있음"/>
                     </TableRow>
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:weightSum="6">
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:layout_weight="2"
                             android:layout_marginTop="1dp"
                             android:layout_marginBottom="1dp"
@@ -306,11 +307,11 @@
                             android:background="@color/silver"
                             android:textSize="14sp"
                             android:textColor="@color/darkGray"
-                            android:text="반려동물"/>
+                            android:text="@string/animal"/>
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:layout_weight="4"
                             android:layout_marginTop="1dp"
                             android:layout_marginBottom="1dp"
@@ -318,7 +319,7 @@
                             android:background="@color/white"
                             android:textSize="14sp"
                             android:textColor="@color/dimGray"
-                            android:text="가능"/>
+                            tools:text="가능"/>
                     </TableRow>
 
                 </TableLayout>
@@ -328,17 +329,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="15dp"
                     android:textSize="18sp"
                     android:textColor="@color/dimGray"
                     app:layout_constraintTop_toBottomOf="@+id/detail_table"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    android:text="상세정보"/>
+                    android:text="@string/detailInfo"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="30dp"
                     android:padding="10dp"
                     android:background="@drawable/detail_textview_shape"
                     android:textSize="14sp"
@@ -347,7 +350,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    android:text="공동 현관 비밀번호, CCTV 설치\n근처 편의점, 슈퍼 있음\n수압 ㅇㅋ"/>
+                    tools:text="공동 현관 비밀번호, CCTV 설치\n근처 편의점, 슈퍼 있음\n수압 ㅇㅋ"/>
 
             </android.support.constraint.ConstraintLayout>
 
