@@ -1,4 +1,4 @@
-package com.example.yujin.whereismyroom.DB;
+package com.example.yujin.whereismyroom.db;
 
 import android.provider.BaseColumns;
 
@@ -24,16 +24,16 @@ public final class DataBases {
 
         public static final String _CREATE = "create table if not exists " + TABLE_NAME + "("
                 + _ID + " integer primary key autoincrement, "
-                + DEPOSIT + " integer not null, "
-                + RENT_MONTH + " integer not null, "
-                + UTILITIES + " integer not null, "
+                + DEPOSIT + " text not null, "
+                + RENT_MONTH + " text not null, "
+                + UTILITIES + " text not null, "
                 + INCLUDED_UTILITIES + " text, "
-                + BUILD_FLOOR + " integer, "
-                + MY_FLOOR + " integer, "
+                + BUILD_FLOOR + " text, "
+                + MY_FLOOR + " text, "
                 + DIRECTION + " text, "
                 + ROOM_TYPE + " text, "
-                + ROOM_SIZE_M + " real, "
-                + ROOM_SIZE_P + " real, "
+                + ROOM_SIZE_M + " text, "
+                + ROOM_SIZE_P + " text, "
                 + OPTION + " text, "
                 + ANIMAL + " integer, "
                 + ELEVATOR + " integer, "

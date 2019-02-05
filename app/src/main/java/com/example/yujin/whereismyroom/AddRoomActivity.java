@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
-import com.example.yujin.whereismyroom.DB.DbOpenHelper;
+import com.example.yujin.whereismyroom.db.DbOpenHelper;
 import com.example.yujin.whereismyroom.databinding.ActivityAddRoomBinding;
 
 import org.honorato.multistatetogglebutton.ToggleButton;
@@ -241,16 +241,16 @@ public class AddRoomActivity extends AppCompatActivity {
                 binding.addEditRentMonth.getText().length() != 0&&
                 binding.addEditDeposit.getText().length() != 0) {
             //방 추가
-            int deposit = Integer.parseInt(binding.addEditDeposit.getText().toString());
-            int rentMonth = Integer.parseInt(binding.addEditRentMonth.getText().toString());
-            int utilities = Integer.parseInt(binding.addEditUtilities.getText().toString());
+            String deposit = binding.addEditDeposit.getText().toString();
+            String rentMonth = binding.addEditRentMonth.getText().toString();
+            String utilities = binding.addEditUtilities.getText().toString();
             String includedUtilities = binding.addSpinnerUtilities.getSelectedItemsAsString();
-            int buildFloor = binding.addSpinnerBuildFloor.getSelectedItem().toString().equals("-") ? 0 : Integer.parseInt(binding.addSpinnerBuildFloor.getSelectedItem().toString());
-            int myFloor = binding.addSpinnerMyFloor.getSelectedItem().toString().equals("-") ? 0 : Integer.parseInt(binding.addSpinnerMyFloor.getSelectedItem().toString());
-            String direction = binding.addSpinnerDirection.getSelectedItem().toString().equals("-") ? "" : binding.addSpinnerDirection.getSelectedItem().toString();
-            String roomType = binding.addSpinnerRoomType.getSelectedItem().toString().equals("-") ? "" : binding.addSpinnerRoomType.getSelectedItem().toString();
-            double roomSizeM = binding.addEditRoomSizeM.getText().toString().equals("") ? 0 : Float.parseFloat(binding.addEditRoomSizeM.getText().toString());
-            double roomSizeP = binding.addEditRoomSizeP.getText().toString().equals("") ? 0 : Float.parseFloat(binding.addEditRoomSizeP.getText().toString());
+            String buildFloor = binding.addSpinnerBuildFloor.getSelectedItem().toString();
+            String myFloor = binding.addSpinnerMyFloor.getSelectedItem().toString();
+            String direction = binding.addSpinnerDirection.getSelectedItem().toString();
+            String roomType = binding.addSpinnerRoomType.getSelectedItem().toString();
+            String roomSizeM = binding.addEditRoomSizeM.getText().toString();
+            String roomSizeP = binding.addEditRoomSizeP.getText().toString();
             String option = binding.addSpinnerOption.getSelectedItemsAsString();
             String detail = binding.addEditDetail.getText().toString();
 

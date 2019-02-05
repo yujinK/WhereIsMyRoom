@@ -1,4 +1,4 @@
-package com.example.yujin.whereismyroom.DB;
+package com.example.yujin.whereismyroom.db;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -49,8 +49,9 @@ public class DbOpenHelper {
         mDB.close();
     }
 
-    public long insertColumn(int deposit, int rentMonth, int utilities, String includedUtilities, int buildFloor, int myFloor
-                            , String direction, String roomType, double roomSizeM, double roomSizeP, String option
+    public long insertColumn(String deposit, String rentMonth, String utilities, String includedUtilities
+                            , String buildFloor, String myFloor, String direction, String roomType
+                            , String roomSizeM, String roomSizeP, String option
                             , int animal, int elevator, int parking, String detail) {
         ContentValues values = new ContentValues();
         values.put(DataBases.CreateDB.DEPOSIT, deposit);
@@ -76,9 +77,10 @@ public class DbOpenHelper {
         return c;
     }
 
-    public boolean updateColumn(int id, int deposit, int rentMonth, int utilities, String includedUtilities, int buildFloor
-            , int myFloor, String direction, String roomType, double roomSizeM, double roomSizeP
-            , String option, int animal, int elevator, int parking, String detail) {
+    public boolean updateColumn(int id, String deposit, String rentMonth, String utilities, String includedUtilities
+                            , String buildFloor, String myFloor, String direction, String roomType
+                            , String roomSizeM, String roomSizeP, String option
+                            , int animal, int elevator, int parking, String detail) {
         ContentValues values = new ContentValues();
         values.put(DataBases.CreateDB.DEPOSIT, deposit);
         values.put(DataBases.CreateDB.RENT_MONTH, rentMonth);
