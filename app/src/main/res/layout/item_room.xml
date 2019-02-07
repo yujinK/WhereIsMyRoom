@@ -49,14 +49,15 @@
 
             <TextView
                 android:id="@+id/item_txt_room_detail"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:textSize="13sp"
                 app:layout_constraintTop_toBottomOf="@+id/item_txt_rent_type"
                 app:layout_constraintBottom_toTopOf="@+id/item_img_subway_line"
                 app:layout_constraintLeft_toRightOf="@+id/item_img_room"
-                tools:text="투룸 | 3층 | 11평 | 관리비 5만"/>
+                app:layout_constraintRight_toRightOf="parent"
+                tools:text="원룸(분리형) | 3층 | 11평 | 관리비 5만"/>
 
             <ImageView
                 android:id="@+id/item_img_subway_line"
