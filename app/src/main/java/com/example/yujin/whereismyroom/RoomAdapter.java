@@ -61,7 +61,7 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), DetailRoomActivity.class);
-                intent.putExtra("pageType", "ADD");
+                intent.putExtra("pageType", "DETAIL");
                 intent.putExtra("room", roomList.get(position));
                 context.startActivity(intent);
             }

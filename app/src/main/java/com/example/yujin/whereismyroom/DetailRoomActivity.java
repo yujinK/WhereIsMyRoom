@@ -163,7 +163,7 @@ public class DetailRoomActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_edit:
-                //Toast.makeText(getApplicationContext(), "Select Edit", Toast.LENGTH_SHORT).show();
+                //방 수정
                 Intent intent = new Intent(this, AddRoomActivity.class);
                 intent.putExtra("pageType", "EDIT");
                 intent.putExtra("room", room);

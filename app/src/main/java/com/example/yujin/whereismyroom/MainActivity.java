@@ -106,7 +106,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
     }
 
     public void onButtonClick(View view) {
+        //방 추가
         Intent intent = new Intent(MainActivity.this, AddRoomActivity.class);
+        intent.putExtra("pageType", "ADD");
         startActivity(intent);
     }
 }
