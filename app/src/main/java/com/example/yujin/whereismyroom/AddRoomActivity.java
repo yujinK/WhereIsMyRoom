@@ -316,12 +316,14 @@ public class AddRoomActivity extends AppCompatActivity {
             if (pageType.equals("ADD")) {
                 helper.insertColumn(deposit, rentMonth, utilities, includedUtilities, buildFloor, myFloor, direction, roomType
                         , roomSizeM, roomSizeP, option, animal, elevator, parking, detail);
+                helper.close();
                 Toast.makeText(this, "방 추가 완료", Toast.LENGTH_SHORT).show();
                 finish();
             } else if (pageType.equals("EDIT")) {
                 helper.updateColumn(Integer.parseInt(room.id), deposit, rentMonth, utilities, includedUtilities
                         , buildFloor, myFloor, direction, roomType, roomSizeM, roomSizeP, option
                         , animal, elevator, parking, detail);
+                helper.close();
                 Toast.makeText(this, "방 수정 완료", Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent();

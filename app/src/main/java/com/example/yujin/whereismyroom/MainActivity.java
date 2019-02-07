@@ -93,6 +93,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
             roomList.add(new Room(id, deposit, rentMonth, utilities, includedUtilities, buildFloor, myFloor
                     , direction, roomType, roomSizeM, roomSizeP, option, animal, elevator, parking, detail));
         }
+
+        helper.close();
     }
 
     public void deleteRoom(int position) {
