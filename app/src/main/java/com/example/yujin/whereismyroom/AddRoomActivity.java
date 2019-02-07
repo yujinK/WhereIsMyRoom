@@ -2,6 +2,7 @@ package com.example.yujin.whereismyroom;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,10 +19,14 @@ import com.example.yujin.whereismyroom.databinding.ActivityAddRoomBinding;
 
 import org.honorato.multistatetogglebutton.ToggleButton;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class AddRoomActivity extends AppCompatActivity {
 
     ActivityAddRoomBinding binding;
-    String animal, elevator, parking;
+    String animal, elevator, parking, pageType;
+    Room room;
     public static final double EXCHANGE_P = 0.3025; // 평으로 환산, 1제곱미터 = 0.3025평
     public static final double EXCHANGE_M = 3.3;    // 제곱미터로 환산, 1평 = 약 3.3제곱미터
 
@@ -32,6 +37,13 @@ public class AddRoomActivity extends AppCompatActivity {
         binding.setActivity(this);
 
         init();
+
+        pageType = getIntent().getStringExtra("pageType");
+        room = (Room) getIntent().getSerializableExtra("room");
+
+        if (pageType.equals("EDIT")) {
+            initEdit();
+        }
     }
 
     @Override
@@ -90,6 +102,50 @@ public class AddRoomActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void initEdit() {
+        binding.addEditDeposit.setText(room.deposit);
+        binding.addEditRentMonth.setText(room.rentMonth);
+        binding.addEditUtilities.setText(room.utilities);
+
+        String[] utilities = room.includedUtilities.split(", ");
+        List<String> lUtilities = Arrays.asList(utilities);
+        binding.addSpinnerUtilities.setSelection(lUtilities);
+
+
+        ArrayAdapter buildFloor = (ArrayAdapter) binding.addSpinnerBuildFloor.getAdapter();
+        binding.addSpinnerBuildFloor.setSelection(buildFloor.getPosition(room.buildFloor));
+
+        ArrayAdapter myFloor = (ArrayAdapter) binding.addSpinnerMyFloor.getAdapter();
+        binding.addSpinnerMyFloor.setSelection(myFloor.getPosition(room.myFloor));
+
+        ArrayAdapter direction = (ArrayAdapter) binding.addSpinnerDirection.getAdapter();
+        binding.addSpinnerDirection.setSelection(direction.getPosition(room.direction));
+
+        ArrayAdapter roomType = (ArrayAdapter) binding.addSpinnerRoomType.getAdapter();
+        binding.addSpinnerRoomType.setSelection(roomType.getPosition(room.roomType));
+
+        binding.addEditRoomSizeM.setText(room.roomSizeM);
+        binding.addEditRoomSizeP.setText(room.roomSizeP);
+
+        String[] options = room.option.split(", ");
+        List<String> lOptions = Arrays.asList(options);
+        binding.addSpinnerOption.setSelection(lOptions);
+
+        if (room.animal != null) {
+            binding.addToggleAnimal.setValue(Integer.parseInt(room.animal));
+        }
+
+        if (room.elevator != null) {
+            binding.addToggleElevator.setValue(Integer.parseInt(room.elevator));
+        }
+
+        if (room.parking != null) {
+            binding.addToggleParking.setValue(Integer.parseInt(room.parking));
+        }
+
+        binding.addEditDetail.setText(room.detail);
     }
 
     private void initToolbar() {
@@ -256,11 +312,26 @@ public class AddRoomActivity extends AppCompatActivity {
 
             DbOpenHelper helper = new DbOpenHelper(this);
             helper.open();
-            helper.insertColumn(deposit, rentMonth, utilities, includedUtilities, buildFloor, myFloor, direction, roomType
-                    , roomSizeM, roomSizeP, option, animal, elevator, parking, detail);
 
-            Toast.makeText(this, "방 추가 완료", Toast.LENGTH_SHORT).show();
-            finish();
+            if (pageType.equals("ADD")) {
+                helper.insertColumn(deposit, rentMonth, utilities, includedUtilities, buildFloor, myFloor, direction, roomType
+                        , roomSizeM, roomSizeP, option, animal, elevator, parking, detail);
+                Toast.makeText(this, "방 추가 완료", Toast.LENGTH_SHORT).show();
+                finish();
+            } else if (pageType.equals("EDIT")) {
+                helper.updateColumn(Integer.parseInt(room.id), deposit, rentMonth, utilities, includedUtilities
+                        , buildFloor, myFloor, direction, roomType, roomSizeM, roomSizeP, option
+                        , animal, elevator, parking, detail);
+                Toast.makeText(this, "방 수정 완료", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent();
+                Room editRoom = new Room(room.id, deposit, rentMonth, utilities, includedUtilities
+                                , buildFloor, myFloor, direction, roomType, roomSizeM, roomSizeP, option
+                                , animal, elevator, parking, detail);
+                intent.putExtra("room", editRoom);
+                setResult(RESULT_OK, intent);
+                finish();
+            }
         } else {
             binding.addRootView.clearFocus();
             hideKeyboard();
@@ -299,7 +370,11 @@ public class AddRoomActivity extends AppCompatActivity {
     }
 
     public void hideKeyboard() {
-        InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        try {
+            InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

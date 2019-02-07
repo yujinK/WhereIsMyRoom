@@ -1,5 +1,6 @@
 package com.example.yujin.whereismyroom;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.yujin.whereismyroom.common.Globals;
 import com.example.yujin.whereismyroom.common.Util;
 import com.example.yujin.whereismyroom.databinding.ActivityDetailRoomBinding;
 
@@ -25,6 +27,21 @@ public class DetailRoomActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail_room);
 
         init();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch(requestCode) {
+            case (Globals.STATIC_INTEGER_VALUE): {
+                if (resultCode == RESULT_OK) {
+                    room = (Room) data.getSerializableExtra("room");
+                    setRoomData();
+                }
+                break;
+            }
+        }
+
     }
 
     public void init() {
@@ -146,7 +163,11 @@ public class DetailRoomActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_edit:
-                Toast.makeText(getApplicationContext(), "Select Edit", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Select Edit", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, AddRoomActivity.class);
+                intent.putExtra("pageType", "EDIT");
+                intent.putExtra("room", room);
+                startActivityForResult(intent, Globals.STATIC_INTEGER_VALUE);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
