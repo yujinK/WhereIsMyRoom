@@ -1,4 +1,4 @@
-package com.example.yujin.whereismyroom;
+package com.example.yujin.whereismyroom.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.yujin.whereismyroom.DetailRoomActivity;
+import com.example.yujin.whereismyroom.R;
+import com.example.yujin.whereismyroom.RecyclerViewClickListener;
+import com.example.yujin.whereismyroom.Room;
 import com.example.yujin.whereismyroom.common.Util;
 
 import java.util.List;
@@ -20,7 +24,7 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder
     private Util util;
     private static RecyclerViewClickListener itemListener;
 
-    RoomAdapter(Context context, RecyclerViewClickListener itemListener, List<Room> roomList) {
+    public RoomAdapter(Context context, RecyclerViewClickListener itemListener, List<Room> roomList) {
         this.context = context;
         this.itemListener = itemListener;
         this.roomList = roomList;

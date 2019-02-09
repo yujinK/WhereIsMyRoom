@@ -14,7 +14,6 @@ import android.widget.EditText;
 import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
-import com.example.yujin.whereismyroom.common.Util;
 import com.example.yujin.whereismyroom.db.DbOpenHelper;
 import com.example.yujin.whereismyroom.databinding.ActivityAddRoomBinding;
 
@@ -343,7 +342,13 @@ public class AddRoomActivity extends AppCompatActivity {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(R.string.alert);
             builder.setMessage(R.string.addInputAlertMessage);
-            builder.setPositiveButton(R.string.ok, null);
+            builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    //ScrollView 상단으로 이동
+                    binding.addScrollview.smoothScrollTo(0, 0);
+                }
+            });
             builder.show();
         }
     }
