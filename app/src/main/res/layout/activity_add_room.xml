@@ -19,7 +19,8 @@
 
         <include
             android:id="@+id/add_toolbar"
-            layout="@layout/toolbar" />
+            layout="@layout/toolbar"
+            app:title="@{@string/addToolBar}"/>
 
         <ScrollView
             android:layout_width="0dp"

@@ -150,7 +150,6 @@ public class AddRoomActivity extends AppCompatActivity {
 
     private void initToolbar() {
         setSupportActionBar(binding.addToolbar.toolbar);
-        getSupportActionBar().setTitle(getString(R.string.addToolBar));
 
         //툴바 왼쪽 back 버튼
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -367,8 +366,12 @@ public class AddRoomActivity extends AppCompatActivity {
     }
 
     public void showKeyboard(EditText input) {
-        InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-        imm.showSoftInput(input,0);
+        try {
+            InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            imm.showSoftInput(input,0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void hideKeyboard() {

@@ -24,7 +24,8 @@
 
         <include
             android:id="@+id/main_toolbar"
-            layout="@layout/toolbar" />
+            layout="@layout/toolbar"
+            app:title="@{@string/app_name}"/>
 
         <FrameLayout
             android:layout_width="match_parent"

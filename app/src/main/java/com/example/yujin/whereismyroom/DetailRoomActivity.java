@@ -45,8 +45,7 @@ public class DetailRoomActivity extends AppCompatActivity {
     }
 
     public void init() {
-        setSupportActionBar(binding.detailToolbar.toolbar);
-        getSupportActionBar().setTitle(getString(R.string.detailToolBar)); //TODO: ToolBar 뭘로 표시할 지 생각해보기
+        setSupportActionBar(binding.detailToolbar.toolbar); //TODO: ToolBar 뭘로 표시할 지 생각해보기
 
         //ToolBar 왼쪽 back 버튼
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

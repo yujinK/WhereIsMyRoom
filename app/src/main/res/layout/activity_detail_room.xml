@@ -11,7 +11,8 @@
 
         <include
             android:id="@+id/detail_toolbar"
-            layout="@layout/toolbar" />
+            layout="@layout/toolbar"
+            app:title="@{@string/detailToolBar}"/>
 
         <ScrollView
             android:layout_width="0dp"
