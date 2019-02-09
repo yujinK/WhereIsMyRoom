@@ -66,13 +66,12 @@ public class DetailRoomActivity extends AppCompatActivity {
 
     public void setRoomData() {
         //전월세 셋팅
-        if (room.rentMonth.equals("0")) {
+        binding.detailTxtRentType.setText(room.rentType);
+        if (room.rentType.equals("전세")) {
             //전세
-            binding.detailTxtRentType.setText(R.string.rentYear);
             binding.detailTxtRentCost.setText(util.calDeposit(room.deposit));
         } else {
             //월세
-            binding.detailTxtRentType.setText(R.string.rentMonth);
             binding.detailTxtRentCost.setText(String.format("%s / %s", room.deposit, room.rentMonth));
         }
 

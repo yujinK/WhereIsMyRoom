@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
             String id = cursor.getString(cursor.getColumnIndex("_id"));
             String deposit = cursor.getString(cursor.getColumnIndex("deposit"));
             String rentMonth = cursor.getString(cursor.getColumnIndex("rent_month"));
+            String rentType = cursor.getString(cursor.getColumnIndex("rent_type"));
             String utilities = cursor.getString(cursor.getColumnIndex("utilities"));
             String includedUtilities = cursor.getString(cursor.getColumnIndex("included_utilities"));
             String buildFloor = cursor.getString(cursor.getColumnIndex("build_floor"));
@@ -90,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
             String parking = cursor.getString(cursor.getColumnIndex("parking"));
             String detail = cursor.getString(cursor.getColumnIndex("detail"));
 
-            roomList.add(new Room(id, deposit, rentMonth, utilities, includedUtilities, buildFloor, myFloor
+            roomList.add(new Room(id, deposit, rentMonth, rentType, utilities, includedUtilities, buildFloor, myFloor
                     , direction, roomType, roomSizeM, roomSizeP, option, animal, elevator, parking, detail));
         }
 

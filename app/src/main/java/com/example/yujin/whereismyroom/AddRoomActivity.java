@@ -298,6 +298,7 @@ public class AddRoomActivity extends AppCompatActivity {
             //방 추가
             String deposit = binding.addEditDeposit.getText().toString();
             String rentMonth = binding.addEditRentMonth.getText().toString();
+            String rentType = rentMonth.equals("0") ? getString(R.string.rentYear) : getString(R.string.rentMonth);
             String utilities = binding.addEditUtilities.getText().toString();
             String includedUtilities = binding.addSpinnerUtilities.getSelectedItemsAsString();
             String buildFloor = binding.addSpinnerBuildFloor.getSelectedItem().toString();
@@ -313,20 +314,20 @@ public class AddRoomActivity extends AppCompatActivity {
             helper.open();
 
             if (pageType.equals("ADD")) {
-                helper.insertColumn(deposit, rentMonth, utilities, includedUtilities, buildFloor, myFloor, direction, roomType
+                helper.insertColumn(deposit, rentMonth, rentType, utilities, includedUtilities, buildFloor, myFloor, direction, roomType
                         , roomSizeM, roomSizeP, option, animal, elevator, parking, detail);
                 helper.close();
                 Toast.makeText(this, "방 추가 완료", Toast.LENGTH_SHORT).show();
                 finish();
             } else if (pageType.equals("EDIT")) {
-                helper.updateColumn(Integer.parseInt(room.id), deposit, rentMonth, utilities, includedUtilities
+                helper.updateColumn(Integer.parseInt(room.id), deposit, rentMonth, rentType, utilities, includedUtilities
                         , buildFloor, myFloor, direction, roomType, roomSizeM, roomSizeP, option
                         , animal, elevator, parking, detail);
                 helper.close();
                 Toast.makeText(this, "방 수정 완료", Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent();
-                Room editRoom = new Room(room.id, deposit, rentMonth, utilities, includedUtilities
+                Room editRoom = new Room(room.id, deposit, rentMonth, rentType, utilities, includedUtilities
                                 , buildFloor, myFloor, direction, roomType, roomSizeM, roomSizeP, option
                                 , animal, elevator, parking, detail);
                 intent.putExtra("room", editRoom);

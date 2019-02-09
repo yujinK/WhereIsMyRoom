@@ -8,6 +8,7 @@ public final class DataBases {
 
         public static final String DEPOSIT = "deposit";
         public static final String RENT_MONTH = "rent_month";
+        public static final String RENT_TYPE = "rent_type";
         public static final String UTILITIES = "utilities";
         public static final String INCLUDED_UTILITIES = "included_utilities";
         public static final String BUILD_FLOOR = "build_floor";
@@ -26,6 +27,7 @@ public final class DataBases {
                 + _ID + " integer primary key autoincrement, "
                 + DEPOSIT + " text not null, "
                 + RENT_MONTH + " text not null, "
+                + RENT_TYPE + " text not null, "
                 + UTILITIES + " text not null, "
                 + INCLUDED_UTILITIES + " text, "
                 + BUILD_FLOOR + " text, "

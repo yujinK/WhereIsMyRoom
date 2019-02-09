@@ -49,13 +49,14 @@ public class DbOpenHelper {
         mDB.close();
     }
 
-    public long insertColumn(String deposit, String rentMonth, String utilities, String includedUtilities
+    public long insertColumn(String deposit, String rentMonth, String rentType, String utilities, String includedUtilities
                             , String buildFloor, String myFloor, String direction, String roomType
                             , String roomSizeM, String roomSizeP, String option
                             , String animal, String elevator, String parking, String detail) {
         ContentValues values = new ContentValues();
         values.put(DataBases.CreateDB.DEPOSIT, deposit);
         values.put(DataBases.CreateDB.RENT_MONTH, rentMonth);
+        values.put(DataBases.CreateDB.RENT_TYPE, rentType);
         values.put(DataBases.CreateDB.UTILITIES, utilities);
         values.put(DataBases.CreateDB.INCLUDED_UTILITIES, includedUtilities);
         values.put(DataBases.CreateDB.BUILD_FLOOR, buildFloor);
@@ -77,13 +78,14 @@ public class DbOpenHelper {
         return c;
     }
 
-    public boolean updateColumn(int id, String deposit, String rentMonth, String utilities, String includedUtilities
+    public boolean updateColumn(int id, String deposit, String rentMonth, String rentType, String utilities, String includedUtilities
                             , String buildFloor, String myFloor, String direction, String roomType
                             , String roomSizeM, String roomSizeP, String option
                             , String animal, String elevator, String parking, String detail) {
         ContentValues values = new ContentValues();
         values.put(DataBases.CreateDB.DEPOSIT, deposit);
         values.put(DataBases.CreateDB.RENT_MONTH, rentMonth);
+        values.put(DataBases.CreateDB.RENT_TYPE, rentType);
         values.put(DataBases.CreateDB.UTILITIES, utilities);
         values.put(DataBases.CreateDB.INCLUDED_UTILITIES, includedUtilities);
         values.put(DataBases.CreateDB.BUILD_FLOOR, buildFloor);

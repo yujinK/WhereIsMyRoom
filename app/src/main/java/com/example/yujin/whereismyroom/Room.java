@@ -6,6 +6,7 @@ public class Room implements Serializable {
     public String id;
     public String deposit;
     public String rentMonth;
+    public String rentType;
     public String utilities;
     public String includedUtilities;
     public String buildFloor;
@@ -20,13 +21,14 @@ public class Room implements Serializable {
     public String parking;
     public String detail;
 
-    public Room (String id, String deposit, String rentMonth, String utilities, String includedUtilities, String buildFloor
-                , String myFloor, String direction, String roomType, String roomSizeM, String roomSizeP, String option
-                , String animal, String elevator, String parking, String detail) {
+    public Room (String id, String deposit, String rentMonth, String rentType, String utilities, String includedUtilities
+                , String buildFloor, String myFloor, String direction, String roomType, String roomSizeM, String roomSizeP
+                , String option, String animal, String elevator, String parking, String detail) {
         this.id = id;
         this.deposit = deposit;
         this.utilities = utilities;
         this.rentMonth = rentMonth;
+        this.rentType = rentType;
         this.includedUtilities = includedUtilities;
         this.buildFloor = buildFloor;
         this.myFloor = myFloor;

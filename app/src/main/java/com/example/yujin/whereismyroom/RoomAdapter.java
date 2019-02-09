@@ -37,12 +37,11 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder
     @Override
     public void onBindViewHolder(@NonNull RoomViewHolder holder, final int position) {
         holder.imgRoom.setImageResource(R.drawable.room_sample);    // TODO: 이미지 추가 할 것
+        holder.rentType.setText(roomList.get(position).rentType);
 
-        if (roomList.get(position).rentMonth.equals("0")) {
-            holder.rentType.setText(R.string.rentYear);
+        if (roomList.get(position).rentType.equals("전세")) {
             holder.rentCost.setText(util.calDeposit(String.valueOf(roomList.get(position).deposit)));
         } else {
-            holder.rentType.setText(R.string.rentMonth);
             holder.rentCost.setText(util.calDeposit(roomList.get(position).deposit) + "/" + roomList.get(position).rentMonth);
         }
 
