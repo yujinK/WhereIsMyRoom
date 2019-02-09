@@ -6,7 +6,7 @@ public class Util {
      * @param deposit
      * @return
      */
-    public String calDeposit(String deposit) {
+    public static String calDeposit(String deposit) {
         String result = "";
 
         if (deposit.length() > 4) {

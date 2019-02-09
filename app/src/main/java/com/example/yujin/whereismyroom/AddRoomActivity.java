@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
+import com.example.yujin.whereismyroom.common.Util;
 import com.example.yujin.whereismyroom.db.DbOpenHelper;
 import com.example.yujin.whereismyroom.databinding.ActivityAddRoomBinding;
 
@@ -294,7 +295,7 @@ public class AddRoomActivity extends AppCompatActivity {
     public void onSubmitButtonClick(View view) {
         if (binding.addEditDeposit.getText().length() != 0 &&
                 binding.addEditRentMonth.getText().length() != 0&&
-                binding.addEditDeposit.getText().length() != 0) {
+                binding.addEditUtilities.getText().length() != 0) {
             //방 추가
             String deposit = binding.addEditDeposit.getText().toString();
             String rentMonth = binding.addEditRentMonth.getText().toString();
