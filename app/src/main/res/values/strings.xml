@@ -11,6 +11,7 @@
     <string name="utilities">관리비</string>
     <string name="utilitiesDetail">관리비가 없을 경우 0을 입력하세요</string>
     <string name="includedUtilities">관리비 포함항목</string>
+    <string name="subway">지하철역</string>
     <string name="floor">층수</string>
     <string name="buildFloor">건물 층 수</string>
     <string name="myFloor">해당 층 수</string>
@@ -33,6 +34,10 @@
     <string name="delete">삭제</string>
     <string name="cancel">취소</string>
     <string name="deleteItem">정말 삭제하시겠습니까?</string>
+
+    <!--subway-->
+    <string name="subwayURL">http://openapi.tago.go.kr/openapi/service/SubwayInfoService/getKwrdFndSubwaySttnList</string>
+    <string name="subwayKey">BDwHVfLE%2BlpXY%2BquiQ2eW9p7m6NYzVtCUZ143Wu%2Fx732UX0YTtiCvPLXOvWLUQGJwmTLncMIGF6P%2BUrcT9m%2Fxg%3D%3D</string>
 
     <!--activity_add_room.xml-->
     <string name="addToolBar">방 추가</string>

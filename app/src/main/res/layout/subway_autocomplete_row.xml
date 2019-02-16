@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/subway_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textAppearance="?android:attr/textAppearanceListItemSmall"
+            style="?android:attr/dropDownItemStyle"
+            app:layout_constraintLeft_toLeftOf="parent"
+            tools:text="역삼"/>
+
+        <ImageView
+            android:id="@+id/subway_img"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="7dp"
+            tools:src="@drawable/line2"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

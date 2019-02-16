@@ -269,6 +269,37 @@
                 </RelativeLayout>
 
                 <TextView
+                    android:id="@+id/add_txt_subway"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="40dp"
+                    android:text="@string/subway"
+                    android:textColor="@color/dimGray"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/add_layout_utilities" />
+                
+                <AutoCompleteTextView
+                    android:id="@+id/add_auto_subway"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/rounded_border_edittext"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:inputType="text"
+                    android:textColor="@color/dimGray"
+                    android:textSize="20sp"
+                    android:completionThreshold="1"
+                    android:onTextChanged="@{activity::onSubwayChanged}"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/add_txt_subway"/>
+
+                <TextView
                     android:id="@+id/add_txt_floor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -279,7 +310,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/add_layout_utilities" />
+                    app:layout_constraintTop_toBottomOf="@+id/add_auto_subway" />
 
 
                 <TextView

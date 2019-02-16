@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
+import com.example.yujin.whereismyroom.adapter.SubwayAdapter;
 import com.example.yujin.whereismyroom.db.DbOpenHelper;
 import com.example.yujin.whereismyroom.databinding.ActivityAddRoomBinding;
 
@@ -27,6 +28,8 @@ public class AddRoomActivity extends AppCompatActivity {
     ActivityAddRoomBinding binding;
     String animal, elevator, parking, pageType;
     Room room;
+    List<Subway> subwayList;
+
     public static final double EXCHANGE_P = 0.3025; // 평으로 환산, 1제곱미터 = 0.3025평
     public static final double EXCHANGE_M = 3.3;    // 제곱미터로 환산, 1평 = 약 3.3제곱미터
 
@@ -102,7 +105,11 @@ public class AddRoomActivity extends AppCompatActivity {
                 }
             }
         });
+
+        SubwayAdapter subwayAdapter = new SubwayAdapter(this, binding.addAutoSubway.getText().toString());
+        binding.addAutoSubway.setAdapter(subwayAdapter);
     }
+
 
     public void initEdit() {
         binding.addEditDeposit.setText(room.deposit);
@@ -289,6 +296,10 @@ public class AddRoomActivity extends AppCompatActivity {
                 parking = String.valueOf(position);
             }
         });
+    }
+
+    public void onSubwayChanged(CharSequence s, int start, int before, int count) {
+
     }
 
     public void onSubmitButtonClick(View view) {
