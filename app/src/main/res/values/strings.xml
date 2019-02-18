@@ -26,6 +26,7 @@
     <string name="animal">반려동물</string>
     <string name="elevator">엘리베이터</string>
     <string name="parking">주차</string>
+    <string name="nearSubway">인근 지하철역</string>
     <string name="detailInfo">상세정보</string>
     <string name="detailSub">기타 필요한 사항을 입력하세요</string>
     <string name="submit">등록</string>

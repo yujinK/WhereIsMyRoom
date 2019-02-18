@@ -33,6 +33,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:src="@drawable/room_sample"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/detail_txt_rent_type"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent" />
 
@@ -40,7 +42,7 @@
                     android:id="@+id/detail_txt_rent_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginRight="3dp"
                     android:textSize="24sp"
                     android:textStyle="bold"
@@ -56,7 +58,6 @@
                     android:id="@+id/detail_txt_rent_cost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="3dp"
                     android:textSize="24sp"
                     android:textStyle="bold"
@@ -68,6 +69,34 @@
                     app:layout_constraintRight_toRightOf="parent"
                     tools:text="1억 3000"/>
 
+                <ImageView
+                    android:id="@+id/detail_img_subway_route"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_txt_rent_type"
+                    app:layout_constraintBottom_toTopOf="@+id/detail_table"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/detail_txt_subway_name"
+                    android:src="@drawable/line2"/>
+
+                <TextView
+                    android:id="@+id/detail_txt_subway_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/dimGray"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_txt_rent_cost"
+                    app:layout_constraintBottom_toTopOf="@+id/detail_table"
+                    app:layout_constraintLeft_toRightOf="@+id/detail_img_subway_route"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:text="역삼"/>
+
                 <TableLayout
                     android:id="@+id/detail_table"
                     android:layout_width="match_parent"
@@ -75,6 +104,7 @@
                     android:layout_margin="10dp"
                     android:background="@color/silver2"
                     app:layout_constraintTop_toBottomOf="@+id/detail_txt_rent_type"
+                    app:layout_constraintBottom_toTopOf="@+id/detail_txt_room_detail_title"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent">
 

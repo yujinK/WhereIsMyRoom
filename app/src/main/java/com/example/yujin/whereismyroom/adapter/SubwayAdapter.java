@@ -61,12 +61,12 @@ public class SubwayAdapter extends ArrayAdapter<Subway> {
         if (subway != null) {
             subwayName.setText(subway.getStationName());
 
-//            lineImage.setImageResource(subway.getRouteName());    //TODO: 노선 이미지 생각해보기 + api 답변 기다리기
-            if (subway.getRouteName().equals("1")) {
-                lineImage.setImageResource(R.drawable.line1);
-            } else if (subway.getRouteName().equals("2")) {
-                lineImage.setImageResource(R.drawable.line2);
-            }
+//            lineImage.setImageResource(subway.getRouteName());    //TODO: 노선 이미지 생각해보기
+//            if (subway.getRouteName().equals("1")) {
+//                lineImage.setImageResource(R.drawable.line1);
+//            } else if (subway.getRouteName().equals("2")) {
+//                lineImage.setImageResource(R.drawable.line2);
+//            }
 
         }
 
@@ -153,18 +153,19 @@ public class SubwayAdapter extends ArrayAdapter<Subway> {
                         JSONObject item = (JSONObject) parseItem.get(i);
                         String stationId = (String) item.get("subwayStationId");
                         String stationName = (String) item.get("subwayStationName");
-                        String stationIdNum = stationId.split("SUB")[1];
-                        String routeName;
+                        String routeName = (String) item.get("subwayRouteName");
 
                         //TODO: 역 하나에 여러 노선인 거 처리 고민하기
-                        if (stationIdNum.length() > 3) {
-                            routeName = stationIdNum.substring(0, 2);
+                        int index = list.indexOf(new Subway(stationName));
+
+                        if (index == -1) {
+                            list.add(new Subway(stationId, stationName, routeName));
                         } else {
-                            routeName = stationName.substring(0, 1);
+                            list.get(index).addRouteNameList(routeName);
                         }
 
                         //TODO: 지하철 노선 ImageUrl 처리 추가
-                        list.add(new Subway(stationName, routeName));
+//                        list.add(new Subway(stationId, stationName, routeName));
                     }
                 }
                 br.close();
