@@ -50,6 +50,7 @@ public class DbOpenHelper {
     }
 
     public long insertColumn(String deposit, String rentMonth, String rentType, String utilities, String includedUtilities
+                            , String stationName, String routeName
                             , String buildFloor, String myFloor, String direction, String roomType
                             , String roomSizeM, String roomSizeP, String option
                             , String animal, String elevator, String parking, String detail) {
@@ -59,6 +60,8 @@ public class DbOpenHelper {
         values.put(DataBases.CreateDB.RENT_TYPE, rentType);
         values.put(DataBases.CreateDB.UTILITIES, utilities);
         values.put(DataBases.CreateDB.INCLUDED_UTILITIES, includedUtilities);
+        values.put(DataBases.CreateDB.STATION_NAME, stationName);
+        values.put(DataBases.CreateDB.ROUTE_NAME, routeName);
         values.put(DataBases.CreateDB.BUILD_FLOOR, buildFloor);
         values.put(DataBases.CreateDB.MY_FLOOR, myFloor);
         values.put(DataBases.CreateDB.DIRECTION, direction);
@@ -79,6 +82,7 @@ public class DbOpenHelper {
     }
 
     public boolean updateColumn(int id, String deposit, String rentMonth, String rentType, String utilities, String includedUtilities
+                            , String stationName, String routeName
                             , String buildFloor, String myFloor, String direction, String roomType
                             , String roomSizeM, String roomSizeP, String option
                             , String animal, String elevator, String parking, String detail) {
@@ -88,6 +92,8 @@ public class DbOpenHelper {
         values.put(DataBases.CreateDB.RENT_TYPE, rentType);
         values.put(DataBases.CreateDB.UTILITIES, utilities);
         values.put(DataBases.CreateDB.INCLUDED_UTILITIES, includedUtilities);
+        values.put(DataBases.CreateDB.STATION_NAME, stationName);
+        values.put(DataBases.CreateDB.ROUTE_NAME, routeName);
         values.put(DataBases.CreateDB.BUILD_FLOOR, buildFloor);
         values.put(DataBases.CreateDB.MY_FLOOR, myFloor);
         values.put(DataBases.CreateDB.DIRECTION, direction);

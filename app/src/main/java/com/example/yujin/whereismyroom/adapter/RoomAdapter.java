@@ -41,24 +41,24 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder
     @Override
     public void onBindViewHolder(@NonNull RoomViewHolder holder, final int position) {
         holder.imgRoom.setImageResource(R.drawable.room_sample);    // TODO: 이미지 추가 할 것
-        holder.rentType.setText(roomList.get(position).rentType);
+        holder.rentType.setText(roomList.get(position).getRentType());
 
-        if (roomList.get(position).rentType.equals("전세")) {
-            holder.rentCost.setText(util.calDeposit(String.valueOf(roomList.get(position).deposit)));
+        if (roomList.get(position).getRentType().equals("전세")) {
+            holder.rentCost.setText(util.calDeposit(String.valueOf(roomList.get(position).getDeposit())));
         } else {
-            holder.rentCost.setText(util.calDeposit(roomList.get(position).deposit) + "/" + roomList.get(position).rentMonth);
+            holder.rentCost.setText(util.calDeposit(roomList.get(position).getDeposit()) + "/" + roomList.get(position).getRentMonth());
         }
 
-        String detail = roomList.get(position).roomType.equals("-") ? "" : roomList.get(position).roomType + " | ";
-        detail += roomList.get(position).myFloor.equals("-") ? "" : roomList.get(position).myFloor + "층 | ";
-        detail += roomList.get(position).roomSizeP.length() == 0 ? "" : roomList.get(position).roomSizeP + "평 | "; // TODO: 제곱미터 or 평?
-        detail += roomList.get(position).utilities.equals("0") ? "" : "관리비 " + roomList.get(position).utilities + "만 |";
+        String detail = roomList.get(position).getRoomType().equals("-") ? "" : roomList.get(position).getRoomType() + " | ";
+        detail += roomList.get(position).getMyFloor().equals("-") ? "" : roomList.get(position).getMyFloor() + "층 | ";
+        detail += roomList.get(position).getRoomSizeP().length() == 0 ? "" : roomList.get(position).getRoomSizeP() + "평 | "; // TODO: 제곱미터 or 평?
+        detail += roomList.get(position).getUtilities().equals("0") ? "" : "관리비 " + roomList.get(position).getUtilities() + "만 |";
 
         holder.roomDetail.setText(detail);
 
         // TODO: 지하철 추가
-        holder.imgSubwayLine.setImageResource(R.drawable.line2);
-        holder.subwayStation.setText("역삼");
+        holder.imgSubwayLine.setImageResource(R.drawable.seoul2);
+        holder.subwayStation.setText(roomList.get(position).getStationName());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

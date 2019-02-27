@@ -10,6 +10,12 @@ public class Subway {
     private String stationName;
     private List<String> routeNameList;
 
+    public Subway() {
+        stationId = "";
+        stationName = "";
+        routeNameList = new ArrayList<>();
+    }
+
     public Subway(String stationId, String stationName, String routeName) {
         this.stationId = stationId;
         this.stationName = stationName;

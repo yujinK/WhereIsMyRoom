@@ -11,6 +11,8 @@ public final class DataBases {
         public static final String RENT_TYPE = "rent_type";
         public static final String UTILITIES = "utilities";
         public static final String INCLUDED_UTILITIES = "included_utilities";
+        public static final String STATION_NAME = "station_name";
+        public static final String ROUTE_NAME = "route_name";
         public static final String BUILD_FLOOR = "build_floor";
         public static final String MY_FLOOR = "my_floor";
         public static final String DIRECTION = "direction";
@@ -30,6 +32,8 @@ public final class DataBases {
                 + RENT_TYPE + " text not null, "
                 + UTILITIES + " text not null, "
                 + INCLUDED_UTILITIES + " text, "
+                + STATION_NAME + " text, "
+                + ROUTE_NAME + " text, "
                 + BUILD_FLOOR + " text, "
                 + MY_FLOOR + " text, "
                 + DIRECTION + " text, "

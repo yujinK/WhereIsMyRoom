@@ -80,7 +80,7 @@
                     app:layout_constraintBottom_toTopOf="@+id/detail_table"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@+id/detail_txt_subway_name"
-                    android:src="@drawable/line2"/>
+                    android:src="@drawable/seoul2"/>
 
                 <TextView
                     android:id="@+id/detail_txt_subway_name"

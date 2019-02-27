@@ -79,6 +79,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
             String rentType = cursor.getString(cursor.getColumnIndex("rent_type"));
             String utilities = cursor.getString(cursor.getColumnIndex("utilities"));
             String includedUtilities = cursor.getString(cursor.getColumnIndex("included_utilities"));
+            String stationName = cursor.getString(cursor.getColumnIndex("station_name"));
+            String routeName = cursor.getString(cursor.getColumnIndex("route_name"));
             String buildFloor = cursor.getString(cursor.getColumnIndex("build_floor"));
             String myFloor = cursor.getString(cursor.getColumnIndex("my_floor"));
             String direction = cursor.getString(cursor.getColumnIndex("direction"));
@@ -91,7 +93,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
             String parking = cursor.getString(cursor.getColumnIndex("parking"));
             String detail = cursor.getString(cursor.getColumnIndex("detail"));
 
-            roomList.add(new Room(id, deposit, rentMonth, rentType, utilities, includedUtilities, buildFloor, myFloor
+            roomList.add(new Room(id, deposit, rentMonth, rentType, utilities, includedUtilities
+                    , stationName, routeName, buildFloor, myFloor
                     , direction, roomType, roomSizeM, roomSizeP, option, animal, elevator, parking, detail));
         }
 
@@ -101,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
     public void deleteRoom(int position) {
         DbOpenHelper helper = new DbOpenHelper(this);
         helper.open();
-        helper.deleteColumn(Integer.parseInt(roomList.get(position).id));
+        helper.deleteColumn(Integer.parseInt(roomList.get(position).getId()));
         helper.close();
 
         roomList.remove(position);

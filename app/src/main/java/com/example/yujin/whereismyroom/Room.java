@@ -3,26 +3,29 @@ package com.example.yujin.whereismyroom;
 import java.io.Serializable;
 
 public class Room implements Serializable {
-    public String id;
-    public String deposit;
-    public String rentMonth;
-    public String rentType;
-    public String utilities;
-    public String includedUtilities;
-    public String buildFloor;
-    public String myFloor;
-    public String direction;
-    public String roomType;
-    public String roomSizeM;
-    public String roomSizeP;
-    public String option;
-    public String animal;
-    public String elevator;
-    public String parking;
-    public String detail;
+    private String id;
+    private String deposit;
+    private String rentMonth;
+    private String rentType;
+    private String utilities;
+    private String includedUtilities;
+    private String stationName;
+    private String routeName;
+    private String buildFloor;
+    private String myFloor;
+    private String direction;
+    private String roomType;
+    private String roomSizeM;
+    private String roomSizeP;
+    private String option;
+    private String animal;
+    private String elevator;
+    private String parking;
+    private String detail;
 
     public Room (String id, String deposit, String rentMonth, String rentType, String utilities, String includedUtilities
-                , String buildFloor, String myFloor, String direction, String roomType, String roomSizeM, String roomSizeP
+                , String stationName, String routeName, String buildFloor, String myFloor, String direction, String roomType
+                , String roomSizeM, String roomSizeP
                 , String option, String animal, String elevator, String parking, String detail) {
         this.id = id;
         this.deposit = deposit;
@@ -30,6 +33,8 @@ public class Room implements Serializable {
         this.rentMonth = rentMonth;
         this.rentType = rentType;
         this.includedUtilities = includedUtilities;
+        this.stationName = stationName;
+        this.routeName = routeName;
         this.buildFloor = buildFloor;
         this.myFloor = myFloor;
         this.direction = direction;
@@ -89,6 +94,22 @@ public class Room implements Serializable {
 
     public void setIncludedUtilities(String includedUtilities) {
         this.includedUtilities = includedUtilities;
+    }
+
+    public String getStationName() {
+        return stationName;
+    }
+
+    public void setStationName(String stationName) {
+        this.stationName = stationName;
+    }
+
+    public String getRouteName() {
+        return routeName;
+    }
+
+    public void setRouteName(String routeName) {
+        this.routeName = routeName;
     }
 
     public String getBuildFloor() {

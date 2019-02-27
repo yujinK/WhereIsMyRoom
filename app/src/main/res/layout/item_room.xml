@@ -68,7 +68,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/item_txt_room_detail"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toRightOf="@+id/item_img_room"
-                tools:src="@drawable/line2" />
+                tools:src="@drawable/seoul2" />
 
             <TextView
                 android:id="@+id/item_txt_subway_station"

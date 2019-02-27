@@ -9,12 +9,14 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
 import com.example.yujin.whereismyroom.adapter.SubwayAdapter;
+import com.example.yujin.whereismyroom.common.Util;
 import com.example.yujin.whereismyroom.db.DbOpenHelper;
 import com.example.yujin.whereismyroom.databinding.ActivityAddRoomBinding;
 
@@ -28,6 +30,7 @@ public class AddRoomActivity extends AppCompatActivity {
     ActivityAddRoomBinding binding;
     String animal, elevator, parking, pageType;
     Room room;
+    Subway subway;
     List<Subway> subwayList;
 
     public static final double EXCHANGE_P = 0.3025; // 평으로 환산, 1제곱미터 = 0.3025평
@@ -108,51 +111,62 @@ public class AddRoomActivity extends AppCompatActivity {
 
         SubwayAdapter subwayAdapter = new SubwayAdapter(this, binding.addAutoSubway.getText().toString());
         binding.addAutoSubway.setAdapter(subwayAdapter);
+
+        subway = new Subway();
+
+        binding.addAutoSubway.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                subway = (Subway) parent.getItemAtPosition(position);
+                hideKeyboard();
+            }
+        });
     }
 
 
     public void initEdit() {
-        binding.addEditDeposit.setText(room.deposit);
-        binding.addEditRentMonth.setText(room.rentMonth);
-        binding.addEditUtilities.setText(room.utilities);
+        binding.addEditDeposit.setText(room.getDeposit());
+        binding.addEditRentMonth.setText(room.getRentMonth());
+        binding.addEditUtilities.setText(room.getUtilities());
 
-        String[] utilities = room.includedUtilities.split(", ");
+        String[] utilities = room.getIncludedUtilities().split(", ");
         List<String> lUtilities = Arrays.asList(utilities);
         binding.addSpinnerUtilities.setSelection(lUtilities);
 
+        binding.addAutoSubway.setText(room.getStationName());
 
         ArrayAdapter buildFloor = (ArrayAdapter) binding.addSpinnerBuildFloor.getAdapter();
-        binding.addSpinnerBuildFloor.setSelection(buildFloor.getPosition(room.buildFloor));
+        binding.addSpinnerBuildFloor.setSelection(buildFloor.getPosition(room.getBuildFloor()));
 
         ArrayAdapter myFloor = (ArrayAdapter) binding.addSpinnerMyFloor.getAdapter();
-        binding.addSpinnerMyFloor.setSelection(myFloor.getPosition(room.myFloor));
+        binding.addSpinnerMyFloor.setSelection(myFloor.getPosition(room.getMyFloor()));
 
         ArrayAdapter direction = (ArrayAdapter) binding.addSpinnerDirection.getAdapter();
-        binding.addSpinnerDirection.setSelection(direction.getPosition(room.direction));
+        binding.addSpinnerDirection.setSelection(direction.getPosition(room.getDirection()));
 
         ArrayAdapter roomType = (ArrayAdapter) binding.addSpinnerRoomType.getAdapter();
-        binding.addSpinnerRoomType.setSelection(roomType.getPosition(room.roomType));
+        binding.addSpinnerRoomType.setSelection(roomType.getPosition(room.getRoomType()));
 
-        binding.addEditRoomSizeM.setText(room.roomSizeM);
-        binding.addEditRoomSizeP.setText(room.roomSizeP);
+        binding.addEditRoomSizeM.setText(room.getRoomSizeM());
+        binding.addEditRoomSizeP.setText(room.getRoomSizeP());
 
-        String[] options = room.option.split(", ");
+        String[] options = room.getOption().split(", ");
         List<String> lOptions = Arrays.asList(options);
         binding.addSpinnerOption.setSelection(lOptions);
 
-        if (room.animal != null) {
-            binding.addToggleAnimal.setValue(Integer.parseInt(room.animal));
+        if (room.getAnimal() != null) {
+            binding.addToggleAnimal.setValue(Integer.parseInt(room.getAnimal()));
         }
 
-        if (room.elevator != null) {
-            binding.addToggleElevator.setValue(Integer.parseInt(room.elevator));
+        if (room.getElevator() != null) {
+            binding.addToggleElevator.setValue(Integer.parseInt(room.getElevator()));
         }
 
-        if (room.parking != null) {
-            binding.addToggleParking.setValue(Integer.parseInt(room.parking));
+        if (room.getParking() != null) {
+            binding.addToggleParking.setValue(Integer.parseInt(room.getParking()));
         }
 
-        binding.addEditDetail.setText(room.detail);
+        binding.addEditDetail.setText(room.getDetail());
     }
 
     private void initToolbar() {
@@ -312,6 +326,11 @@ public class AddRoomActivity extends AppCompatActivity {
             String rentType = rentMonth.equals("0") ? getString(R.string.rentYear) : getString(R.string.rentMonth);
             String utilities = binding.addEditUtilities.getText().toString();
             String includedUtilities = binding.addSpinnerUtilities.getSelectedItemsAsString();
+
+            //TODO: 지하철 추가
+            String stationName = subway.getStationName();
+            String routeName = subway.getRouteNameList().size()!=0 ? Util.convertArrayToString(subway.getRouteNameList().toArray(new String[subway.getRouteNameList().size()])) : "";
+
             String buildFloor = binding.addSpinnerBuildFloor.getSelectedItem().toString();
             String myFloor = binding.addSpinnerMyFloor.getSelectedItem().toString();
             String direction = binding.addSpinnerDirection.getSelectedItem().toString();
@@ -325,21 +344,23 @@ public class AddRoomActivity extends AppCompatActivity {
             helper.open();
 
             if (pageType.equals("ADD")) {
-                helper.insertColumn(deposit, rentMonth, rentType, utilities, includedUtilities, buildFloor, myFloor, direction, roomType
+                helper.insertColumn(deposit, rentMonth, rentType, utilities, includedUtilities
+                        , stationName, routeName, buildFloor, myFloor, direction, roomType
                         , roomSizeM, roomSizeP, option, animal, elevator, parking, detail);
                 helper.close();
                 Toast.makeText(this, "방 추가 완료", Toast.LENGTH_SHORT).show();
                 finish();
             } else if (pageType.equals("EDIT")) {
-                helper.updateColumn(Integer.parseInt(room.id), deposit, rentMonth, rentType, utilities, includedUtilities
+                helper.updateColumn(Integer.parseInt(room.getId()), deposit, rentMonth, rentType, utilities, includedUtilities
+                        , stationName, routeName
                         , buildFloor, myFloor, direction, roomType, roomSizeM, roomSizeP, option
                         , animal, elevator, parking, detail);
                 helper.close();
                 Toast.makeText(this, "방 수정 완료", Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent();
-                Room editRoom = new Room(room.id, deposit, rentMonth, rentType, utilities, includedUtilities
-                                , buildFloor, myFloor, direction, roomType, roomSizeM, roomSizeP, option
+                Room editRoom = new Room(room.getId(), deposit, rentMonth, rentType, utilities, includedUtilities
+                                , stationName, routeName, buildFloor, myFloor, direction, roomType, roomSizeM, roomSizeP, option
                                 , animal, elevator, parking, detail);
                 intent.putExtra("room", editRoom);
                 setResult(RESULT_OK, intent);
