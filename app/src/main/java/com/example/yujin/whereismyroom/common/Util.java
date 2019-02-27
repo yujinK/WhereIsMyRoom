@@ -89,6 +89,8 @@ public class Util {
                 return R.drawable.airport;
             case "자기부상열차":
                 return R.drawable.maglev;
+            case "경의중앙선":
+                return R.drawable.gyeongui_jungang;
             case "경춘선":
                 return R.drawable.kyeongchun;
             case "분당선":
