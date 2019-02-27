@@ -3,16 +3,20 @@ package com.example.yujin.whereismyroom.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Filter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.yujin.whereismyroom.R;
 import com.example.yujin.whereismyroom.Subway;
+import com.example.yujin.whereismyroom.common.Util;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -53,21 +57,31 @@ public class SubwayAdapter extends ArrayAdapter<Subway> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.subway_autocomplete_row, parent, false);
         }
 
-        TextView subwayName = convertView.findViewById(R.id.subway_name);
-        ImageView lineImage = convertView.findViewById(R.id.subway_img);
+        LinearLayout layout = convertView.findViewById(R.id.subway_layout);
+        TextView stationName = convertView.findViewById(R.id.subway_name);
+        ImageView routeImage = convertView.findViewById(R.id.subway_img);
 
         Subway subway = getItem(position);
 
         if (subway != null) {
-            subwayName.setText(subway.getStationName());
+            stationName.setText(subway.getStationName());
 
-//            lineImage.setImageResource(subway.getRouteName());    //TODO: 노선 이미지 생각해보기
-//            if (subway.getRouteName().equals("1")) {
-//                lineImage.setImageResource(R.drawable.line1);
-//            } else if (subway.getRouteName().equals("2")) {
-//                lineImage.setImageResource(R.drawable.line2);
-//            }
-
+            //TODO: 노선 이미지 추가하기
+            for (int i=0; i<subway.getRouteNameList().size(); i++) {
+                if (i == 0) {
+                    routeImage.setImageResource(Util.findRouteImageResource(subway.getRouteNameList().get(i)));
+                } else {
+                    ImageView iv = new ImageView(getContext());
+                    iv.setImageResource(Util.findRouteImageResource(subway.getRouteNameList().get(i)));
+                    float density = getContext().getResources().getDisplayMetrics().density;
+                    int size = (int)(density * 25);
+                    int margin = (int)(density * 7);
+                    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(size, size);
+                    params.gravity = Gravity.RIGHT;
+                    params.setMargins(0, 0, margin, 0);
+                    layout.addView(iv, params);
+                }
+            }
         }
 
         return convertView;
