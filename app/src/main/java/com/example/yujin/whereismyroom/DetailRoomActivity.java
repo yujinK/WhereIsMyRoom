@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.yujin.whereismyroom.common.Globals;
@@ -76,6 +78,20 @@ public class DetailRoomActivity extends AppCompatActivity {
         }
 
         //TODO: 지하철 셋팅
+        binding.detailLayoutRoute.removeAllViews();
+
+        String[] routeList = Util.convertStringToArray(room.getRouteName());
+
+        for (int i=0; i<routeList.length; i++) {
+            ImageView iv = new ImageView(getApplicationContext());
+            iv.setImageResource(Util.findRouteImageResource(routeList[i]));
+            float density = getApplicationContext().getResources().getDisplayMetrics().density;
+            int size = (int)(density * 18);
+            //int margin = (int)(density * 3);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(size, size);
+            binding.detailLayoutRoute.addView(iv, params);
+        }
+
         binding.detailTxtSubwayName.setText(room.getStationName());
 
         //Table에 데이터 셋팅

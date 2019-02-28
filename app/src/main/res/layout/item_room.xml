@@ -54,31 +54,35 @@
                 android:layout_marginLeft="10dp"
                 android:textSize="13sp"
                 app:layout_constraintTop_toBottomOf="@+id/item_txt_rent_type"
-                app:layout_constraintBottom_toTopOf="@+id/item_img_subway_line"
+                app:layout_constraintBottom_toTopOf="@+id/item_layout_route"
                 app:layout_constraintLeft_toRightOf="@+id/item_img_room"
                 app:layout_constraintRight_toRightOf="parent"
                 tools:text="원룸(분리형) | 3층 | 11평 | 관리비 5만"/>
 
-            <ImageView
-                android:id="@+id/item_img_subway_line"
-                android:layout_width="18dp"
+            <LinearLayout
+                android:id="@+id/item_layout_route"
+                android:layout_width="wrap_content"
                 android:layout_height="18dp"
                 android:layout_marginBottom="12dp"
                 android:layout_marginLeft="10dp"
+                android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@+id/item_txt_room_detail"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toRightOf="@+id/item_img_room"
-                tools:src="@drawable/seoul2" />
+                app:layout_constraintRight_toLeftOf="@+id/item_txt_subway_station">
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/item_txt_subway_station"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
                 android:layout_marginBottom="12dp"
                 android:textSize="13sp"
                 app:layout_constraintTop_toBottomOf="@+id/item_txt_room_detail"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@+id/item_img_subway_line"
+                app:layout_constraintLeft_toRightOf="@+id/item_layout_route"
                 tools:text="역삼"/>
 
         </android.support.constraint.ConstraintLayout>

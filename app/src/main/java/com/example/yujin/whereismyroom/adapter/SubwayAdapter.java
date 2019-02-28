@@ -3,7 +3,6 @@ package com.example.yujin.whereismyroom.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,30 +56,27 @@ public class SubwayAdapter extends ArrayAdapter<Subway> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.subway_autocomplete_row, parent, false);
         }
 
-        LinearLayout layout = convertView.findViewById(R.id.subway_layout);
+        LinearLayout layout = convertView.findViewById(R.id.subway_layout_route);
         TextView stationName = convertView.findViewById(R.id.subway_name);
-        ImageView routeImage = convertView.findViewById(R.id.subway_img);
 
         Subway subway = getItem(position);
 
         if (subway != null) {
-            stationName.setText(subway.getStationName());
+            stationName.setText(subway.getStationName());   //역 이름
 
-            //TODO: 노선 이미지 추가하기
+            layout.removeAllViews();    //노선 img 삭제
+
+            //노선 img 추가
             for (int i=0; i<subway.getRouteNameList().size(); i++) {
-                if (i == 0) {
-                    routeImage.setImageResource(Util.findRouteImageResource(subway.getRouteNameList().get(i)));
-                } else {
-                    ImageView iv = new ImageView(getContext());
-                    iv.setImageResource(Util.findRouteImageResource(subway.getRouteNameList().get(i)));
-                    float density = getContext().getResources().getDisplayMetrics().density;
-                    int size = (int)(density * 25);
-                    int margin = (int)(density * 7);
-                    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(size, size);
-                    params.gravity = Gravity.RIGHT;
-                    params.setMargins(0, 0, margin, 0);
-                    layout.addView(iv, params);
-                }
+                ImageView iv = new ImageView(getContext());
+                iv.setImageResource(Util.findRouteImageResource(subway.getRouteNameList().get(i)));
+                float density = getContext().getResources().getDisplayMetrics().density;
+                int size = (int)(density * 25);
+                int margin = (int)(density * 7);
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(size, size);
+                params.gravity = Gravity.RIGHT;
+                params.setMargins(0, 0, margin, 0);
+                layout.addView(iv, params);
             }
         }
 

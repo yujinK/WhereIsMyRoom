@@ -4,10 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.yujin.whereismyroom.DetailRoomActivity;
@@ -21,7 +23,6 @@ import java.util.List;
 public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder> {
     private List<Room> roomList;
     private Context context;
-    private Util util;
     private static RecyclerViewClickListener itemListener;
 
     public RoomAdapter(Context context, RecyclerViewClickListener itemListener, List<Room> roomList) {
@@ -34,7 +35,6 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder
     @Override
     public RoomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_room, parent, false);
-        util = new Util();
         return new RoomViewHolder(view);
     }
 
@@ -44,9 +44,9 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder
         holder.rentType.setText(roomList.get(position).getRentType());
 
         if (roomList.get(position).getRentType().equals("전세")) {
-            holder.rentCost.setText(util.calDeposit(String.valueOf(roomList.get(position).getDeposit())));
+            holder.rentCost.setText(Util.calDeposit(String.valueOf(roomList.get(position).getDeposit())));
         } else {
-            holder.rentCost.setText(util.calDeposit(roomList.get(position).getDeposit()) + "/" + roomList.get(position).getRentMonth());
+            holder.rentCost.setText(Util.calDeposit(roomList.get(position).getDeposit()) + "/" + roomList.get(position).getRentMonth());
         }
 
         String detail = roomList.get(position).getRoomType().equals("-") ? "" : roomList.get(position).getRoomType() + " | ";
@@ -56,8 +56,21 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder
 
         holder.roomDetail.setText(detail);
 
-        // TODO: 지하철 추가
-        holder.imgSubwayLine.setImageResource(R.drawable.seoul2);
+
+        holder.routeLayout.removeAllViews();    //노선 img 삭제
+        String[] routeList = Util.convertStringToArray(roomList.get(position).getRouteName());
+
+        //노선 img 추가
+        for (int i=0; i<routeList.length; i++) {
+            ImageView iv = new ImageView(context);
+            iv.setImageResource(Util.findRouteImageResource(routeList[i]));
+            float density = context.getResources().getDisplayMetrics().density;
+            int size = (int)(density * 18);
+            //int margin = (int)(density * 3);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(size, size);
+            holder.routeLayout.addView(iv, params);
+        }
+
         holder.subwayStation.setText(roomList.get(position).getStationName());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -83,6 +96,7 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder
         TextView roomDetail;
         ImageView imgSubwayLine;
         TextView subwayStation;
+        LinearLayout routeLayout;
 
         RoomViewHolder(View view) {
             super(view);
@@ -90,8 +104,9 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder
             rentType = view.findViewById(R.id.item_txt_rent_type);
             rentCost = view.findViewById(R.id.item_txt_rent_cost);
             roomDetail = view.findViewById(R.id.item_txt_room_detail);
-            imgSubwayLine = view.findViewById(R.id.item_img_subway_line);
+//            imgSubwayLine = view.findViewById(R.id.item_img_subway_line);
             subwayStation = view.findViewById(R.id.item_txt_subway_station);
+            routeLayout = view.findViewById(R.id.item_layout_route);
             view.setOnLongClickListener(this);
         }
 
