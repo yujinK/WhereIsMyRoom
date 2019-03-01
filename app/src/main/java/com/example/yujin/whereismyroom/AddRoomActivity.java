@@ -1,9 +1,11 @@
 package com.example.yujin.whereismyroom;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -19,11 +21,17 @@ import com.example.yujin.whereismyroom.adapter.SubwayAdapter;
 import com.example.yujin.whereismyroom.common.Util;
 import com.example.yujin.whereismyroom.db.DbOpenHelper;
 import com.example.yujin.whereismyroom.databinding.ActivityAddRoomBinding;
+import com.gun0912.tedpermission.PermissionListener;
+import com.gun0912.tedpermission.TedPermission;
 
 import org.honorato.multistatetogglebutton.ToggleButton;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import gun0912.tedbottompicker.TedBottomPicker;
+import gun0912.tedbottompicker.TedBottomSheetDialogFragment;
 
 public class AddRoomActivity extends AppCompatActivity {
 
@@ -32,6 +40,7 @@ public class AddRoomActivity extends AppCompatActivity {
     Room room;
     Subway subway;
     List<Subway> subwayList;
+    PermissionListener permissionListener;
 
     public static final double EXCHANGE_P = 0.3025; // 평으로 환산, 1제곱미터 = 0.3025평
     public static final double EXCHANGE_M = 3.3;    // 제곱미터로 환산, 1평 = 약 3.3제곱미터
@@ -121,6 +130,18 @@ public class AddRoomActivity extends AppCompatActivity {
                 hideKeyboard();
             }
         });
+
+        permissionListener = new PermissionListener() {
+            @Override
+            public void onPermissionGranted() {
+                Toast.makeText(AddRoomActivity.this, "권한 허가", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+                Toast.makeText(AddRoomActivity.this, "권한 거부\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
+            }
+        };
     }
 
 
@@ -312,8 +333,21 @@ public class AddRoomActivity extends AppCompatActivity {
         });
     }
 
-    public void onSubwayChanged(CharSequence s, int start, int before, int count) {
+    public void onAddRoomImage(View view) {
+        TedPermission.with(this)
+                .setPermissionListener(permissionListener)
+                .setRationaleMessage("사진 추가를 하기 위해서 사진첩 접근 권한이 필요합니다.")
+                .setDeniedMessage("사진첩 접근 권한이 거부되어있어 사진 추가가 불가능합니다.\n[설정] > [권한] 에서 권한을 허용해주세요.")
+                .setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .check();
 
+        TedBottomPicker.with(AddRoomActivity.this)
+                .show(new TedBottomSheetDialogFragment.OnImageSelectedListener() {
+                    @Override
+                    public void onImageSelected(Uri uri) {
+                        Toast.makeText(AddRoomActivity.this, uri.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     public void onSubmitButtonClick(View view) {

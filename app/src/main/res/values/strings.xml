@@ -44,6 +44,7 @@
     <string name="addToolBar">방 추가</string>
     <string name="addInputAlertMessage"><font color='red'>보증금, 월세, 관리비</font>는 필수 항목입니다.\n모두 입력했는지 확인해주세요.</string>
     <string name="addExitAlertMessage">입력된 항목이 있습니다.\n정말 취소하시겠습니까?</string>
+    <string name="addImgMessage">사진을 추가하려면 \'+\'버튼을 눌러주세요.</string>
 
     <!--activity_detail_room.xml-->
     <string name="detailToolBar">방 정보</string>
