@@ -10,13 +10,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.yujin.whereismyroom.adapter.SubwayAdapter;
 import com.example.yujin.whereismyroom.common.Util;
 import com.example.yujin.whereismyroom.db.DbOpenHelper;
@@ -41,6 +45,7 @@ public class AddRoomActivity extends AppCompatActivity {
     Subway subway;
     List<Subway> subwayList;
     PermissionListener permissionListener;
+    String imgUrl;
 
     public static final double EXCHANGE_P = 0.3025; // 평으로 환산, 1제곱미터 = 0.3025평
     public static final double EXCHANGE_M = 3.3;    // 제곱미터로 환산, 1평 = 약 3.3제곱미터
@@ -346,6 +351,45 @@ public class AddRoomActivity extends AppCompatActivity {
                     @Override
                     public void onImageSelected(Uri uri) {
                         Toast.makeText(AddRoomActivity.this, uri.toString(), Toast.LENGTH_SHORT).show();
+                        //TODO: 나중에 사진 여러장 추가 가능하도록 수정하기
+                        imgUrl = uri.toString();
+
+                        //기존 view 숨기기
+                        binding.addBtnRoomImg.setVisibility(View.GONE);
+                        binding.addTxtRoomImg.setVisibility(View.GONE);
+
+                        //ImageView 보이기
+                        binding.addImgId1.setVisibility(View.VISIBLE);
+
+                        binding.addImgId1.setOnLongClickListener(new View.OnLongClickListener() {
+                            @Override
+                            public boolean onLongClick(View v) {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(AddRoomActivity.this);
+                                builder.setTitle(R.string.alert);
+                                builder.setMessage(R.string.addDeleteImgMessage);
+                                builder.setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        //LongClick시 사진 삭제
+                                        binding.addImgId1.setImageResource(0);
+                                        binding.addImgId1.setVisibility(View.GONE);
+
+                                        //기존 view 보이기
+                                        binding.addBtnRoomImg.setVisibility(View.VISIBLE);
+                                        binding.addTxtRoomImg.setVisibility(View.VISIBLE);
+                                        binding.addLayoutImg.setBackgroundColor(getResources().getColor(R.color.alphaGray));
+                                    }
+                                });
+                                builder.setNegativeButton(R.string.cancel, null);
+                                builder.show();
+                                return false;
+                            }
+                        });
+
+                        //layout 배경색 없애기
+                        binding.addLayoutImg.setBackgroundColor(getResources().getColor(R.color.transparency));
+
+                        Glide.with(AddRoomActivity.this).load(uri).into(binding.addImgId1);
                     }
                 });
     }
@@ -360,11 +404,8 @@ public class AddRoomActivity extends AppCompatActivity {
             String rentType = rentMonth.equals("0") ? getString(R.string.rentYear) : getString(R.string.rentMonth);
             String utilities = binding.addEditUtilities.getText().toString();
             String includedUtilities = binding.addSpinnerUtilities.getSelectedItemsAsString();
-
-            //TODO: 지하철 추가
             String stationName = subway.getStationName();
             String routeName = subway.getRouteNameList().size()!=0 ? Util.convertArrayToString(subway.getRouteNameList().toArray(new String[subway.getRouteNameList().size()])) : "";
-
             String buildFloor = binding.addSpinnerBuildFloor.getSelectedItem().toString();
             String myFloor = binding.addSpinnerMyFloor.getSelectedItem().toString();
             String direction = binding.addSpinnerDirection.getSelectedItem().toString();
@@ -380,7 +421,7 @@ public class AddRoomActivity extends AppCompatActivity {
             if (pageType.equals("ADD")) {
                 helper.insertColumn(deposit, rentMonth, rentType, utilities, includedUtilities
                         , stationName, routeName, buildFloor, myFloor, direction, roomType
-                        , roomSizeM, roomSizeP, option, animal, elevator, parking, detail);
+                        , roomSizeM, roomSizeP, option, animal, elevator, parking, detail, imgUrl);
                 helper.close();
                 Toast.makeText(this, "방 추가 완료", Toast.LENGTH_SHORT).show();
                 finish();
@@ -388,14 +429,14 @@ public class AddRoomActivity extends AppCompatActivity {
                 helper.updateColumn(Integer.parseInt(room.getId()), deposit, rentMonth, rentType, utilities, includedUtilities
                         , stationName, routeName
                         , buildFloor, myFloor, direction, roomType, roomSizeM, roomSizeP, option
-                        , animal, elevator, parking, detail);
+                        , animal, elevator, parking, detail, imgUrl);
                 helper.close();
                 Toast.makeText(this, "방 수정 완료", Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent();
                 Room editRoom = new Room(room.getId(), deposit, rentMonth, rentType, utilities, includedUtilities
                                 , stationName, routeName, buildFloor, myFloor, direction, roomType, roomSizeM, roomSizeP, option
-                                , animal, elevator, parking, detail);
+                                , animal, elevator, parking, detail, imgUrl);
                 intent.putExtra("room", editRoom);
                 setResult(RESULT_OK, intent);
                 finish();

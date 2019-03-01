@@ -20,18 +20,18 @@
         <include
             android:id="@+id/add_toolbar"
             layout="@layout/toolbar"
-            app:title="@{@string/addToolBar}"/>
+            app:title="@{@string/addToolBar}" />
 
         <ScrollView
             android:id="@+id/add_scrollview"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:fillViewport="true"
             android:background="@color/lightGray"
-            app:layout_constraintTop_toBottomOf="@+id/add_toolbar"
+            android:fillViewport="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent">
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_toolbar">
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
@@ -42,12 +42,12 @@
                 <LinearLayout
                     android:id="@+id/add_layout_img"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:orientation="vertical"
-                    android:gravity="center"
+                    android:layout_height="180dp"
                     android:background="@color/alphaGray"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toTopOf="@id/add_txt_cost_info">
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toTopOf="@id/add_txt_cost_info"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <ImageButton
                         android:id="@+id/add_btn_room_img"
@@ -55,24 +55,31 @@
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:background="@color/transparency"
-                        android:src="@drawable/baseline_add_white_36"
-                        android:onClick="@{activity::onAddRoomImage}"/>
+                        android:onClick="@{activity::onAddRoomImage}"
+                        android:src="@drawable/baseline_add_white_36" />
 
                     <TextView
+                        android:id="@+id/add_txt_room_img"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/addImgMessage"
-                        android:textSize="12sp"
-                        android:textColor="@color/gray"/>
+                        android:textColor="@color/gray"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:id="@+id/add_img_id_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="gone"/>
 
                 </LinearLayout>
 
                 <!--<ImageView-->
-                    <!--android:id="@+id/add_img_room"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="150dp"-->
-                    <!--app:layout_constraintTop_toTopOf="parent"-->
-                    <!--tools:src="@drawable/room_sample" />-->
+                <!--android:id="@+id/add_img_room"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="150dp"-->
+                <!--app:layout_constraintTop_toTopOf="parent"-->
+                <!--tools:src="@drawable/room_sample" />-->
 
                 <TextView
                     android:id="@+id/add_txt_cost_info"
@@ -293,7 +300,7 @@
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
                         android:textColor="@color/dimGray"
-                        android:textSize="16sp"/>
+                        android:textSize="16sp" />
                 </RelativeLayout>
 
                 <TextView
@@ -308,7 +315,7 @@
                     android:textStyle="bold"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/add_layout_utilities" />
-                
+
                 <AutoCompleteTextView
                     android:id="@+id/add_auto_subway"
                     android:layout_width="match_parent"
@@ -317,14 +324,14 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/rounded_border_edittext"
+                    android:completionThreshold="1"
+                    android:inputType="text"
                     android:padding="10dp"
                     android:singleLine="true"
-                    android:inputType="text"
                     android:textColor="@color/dimGray"
                     android:textSize="20sp"
-                    android:completionThreshold="1"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/add_txt_subway"/>
+                    app:layout_constraintTop_toBottomOf="@+id/add_txt_subway" />
 
                 <TextView
                     android:id="@+id/add_txt_floor"
@@ -370,7 +377,7 @@
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
                         android:textColor="@color/dimGray"
-                        android:textSize="16sp"/>
+                        android:textSize="16sp" />
 
                 </RelativeLayout>
 
@@ -506,11 +513,11 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/rounded_border_edittext"
+                    android:inputType="numberDecimal"
                     android:maxLength="30"
                     android:padding="10dp"
                     android:textColor="@color/dimGray"
                     android:textSize="20sp"
-                    android:inputType="numberDecimal"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/add_txt_room_size"
                     app:layout_constraintWidth_percent="0.4" />
@@ -548,11 +555,11 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/rounded_border_edittext"
+                    android:inputType="numberDecimal"
                     android:maxLength="30"
                     android:padding="10dp"
                     android:textColor="@color/dimGray"
                     android:textSize="20sp"
-                    android:inputType="numberDecimal"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/add_txt_room_size"
                     app:layout_constraintWidth_percent="0.4" />
@@ -623,10 +630,10 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="10dp"
-                    app:mstbSecondaryColor="@color/white"
-                    app:mstbPrimaryColor="@color/dimGray"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/add_txt_animal"
+                    app:mstbPrimaryColor="@color/dimGray"
+                    app:mstbSecondaryColor="@color/white"
                     app:values="@array/animal" />
 
                 <TextView
@@ -649,10 +656,10 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="10dp"
-                    app:mstbSecondaryColor="@color/white"
-                    app:mstbPrimaryColor="@color/dimGray"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/add_txt_elevator"
+                    app:mstbPrimaryColor="@color/dimGray"
+                    app:mstbSecondaryColor="@color/white"
                     app:values="@array/elevator" />
 
                 <TextView
@@ -675,10 +682,10 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="10dp"
-                    app:mstbSecondaryColor="@color/white"
-                    app:mstbPrimaryColor="@color/dimGray"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/add_txt_parking"
+                    app:mstbPrimaryColor="@color/dimGray"
+                    app:mstbSecondaryColor="@color/white"
                     app:values="@array/parking" />
 
                 <TextView
@@ -712,32 +719,32 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="10dp"
-                    android:padding="10dp"
+                    android:background="@drawable/rounded_border_edittext"
                     android:gravity="top"
+                    android:padding="10dp"
                     android:textColor="@color/dimGray"
                     android:textSize="16sp"
-                    android:background="@drawable/rounded_border_edittext"
-                    app:layout_constraintTop_toBottomOf="@id/add_txt_detail_info"
-                    app:layout_constraintLeft_toLeftOf="parent"/>
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/add_txt_detail_info" />
 
                 <Button
                     android:id="@+id/add_btn_submit"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginBottom="20dp"
                     android:layout_marginLeft="50dp"
+                    android:layout_marginTop="40dp"
                     android:layout_marginRight="50dp"
-                    android:text="@string/submit"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
+                    android:layout_marginBottom="20dp"
                     android:background="@drawable/submit_button_custom"
                     android:onClick="@{activity::onSubmitButtonClick}"
-                    app:layout_constraintTop_toBottomOf="@id/add_edit_detail"
+                    android:text="@string/submit"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"/>
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/add_edit_detail" />
 
             </android.support.constraint.ConstraintLayout>
         </ScrollView>

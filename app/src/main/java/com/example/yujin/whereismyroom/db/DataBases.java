@@ -24,6 +24,7 @@ public final class DataBases {
         public static final String ELEVATOR = "elevator";
         public static final String PARKING = "parking";
         public static final String DETAIL = "detail";
+        public static final String IMG_URL = "img_url";
 
         public static final String _CREATE = "create table if not exists " + TABLE_NAME + "("
                 + _ID + " integer primary key autoincrement, "
@@ -44,6 +45,7 @@ public final class DataBases {
                 + ANIMAL + " integer, "
                 + ELEVATOR + " integer, "
                 + PARKING + " integer, "
-                + DETAIL + " text);";
+                + DETAIL + " text, "
+                + IMG_URL + " text);";
     }
 }

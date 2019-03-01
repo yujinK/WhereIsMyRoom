@@ -53,7 +53,7 @@ public class DbOpenHelper {
                             , String stationName, String routeName
                             , String buildFloor, String myFloor, String direction, String roomType
                             , String roomSizeM, String roomSizeP, String option
-                            , String animal, String elevator, String parking, String detail) {
+                            , String animal, String elevator, String parking, String detail, String imgUrl) {
         ContentValues values = new ContentValues();
         values.put(DataBases.CreateDB.DEPOSIT, deposit);
         values.put(DataBases.CreateDB.RENT_MONTH, rentMonth);
@@ -73,6 +73,7 @@ public class DbOpenHelper {
         values.put(DataBases.CreateDB.ELEVATOR, elevator);
         values.put(DataBases.CreateDB.PARKING, parking);
         values.put(DataBases.CreateDB.DETAIL, detail);
+        values.put(DataBases.CreateDB.IMG_URL, imgUrl);
         return mDB.insert(DataBases.CreateDB.TABLE_NAME, null, values);
     }
 
@@ -85,7 +86,7 @@ public class DbOpenHelper {
                             , String stationName, String routeName
                             , String buildFloor, String myFloor, String direction, String roomType
                             , String roomSizeM, String roomSizeP, String option
-                            , String animal, String elevator, String parking, String detail) {
+                            , String animal, String elevator, String parking, String detail, String imgUrl) {
         ContentValues values = new ContentValues();
         values.put(DataBases.CreateDB.DEPOSIT, deposit);
         values.put(DataBases.CreateDB.RENT_MONTH, rentMonth);
@@ -105,6 +106,7 @@ public class DbOpenHelper {
         values.put(DataBases.CreateDB.ELEVATOR, elevator);
         values.put(DataBases.CreateDB.PARKING, parking);
         values.put(DataBases.CreateDB.DETAIL, detail);
+        values.put(DataBases.CreateDB.IMG_URL, imgUrl);
         return mDB.update(DataBases.CreateDB.TABLE_NAME, values, "_id=" + id, null) > 0;
     }
 

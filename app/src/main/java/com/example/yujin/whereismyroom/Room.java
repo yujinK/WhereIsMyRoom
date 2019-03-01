@@ -22,11 +22,12 @@ public class Room implements Serializable {
     private String elevator;
     private String parking;
     private String detail;
+    private String imgUrl;
 
     public Room (String id, String deposit, String rentMonth, String rentType, String utilities, String includedUtilities
                 , String stationName, String routeName, String buildFloor, String myFloor, String direction, String roomType
                 , String roomSizeM, String roomSizeP
-                , String option, String animal, String elevator, String parking, String detail) {
+                , String option, String animal, String elevator, String parking, String detail, String imgUrl) {
         this.id = id;
         this.deposit = deposit;
         this.utilities = utilities;
@@ -46,6 +47,7 @@ public class Room implements Serializable {
         this.elevator = elevator;
         this.parking = parking;
         this.detail = detail;
+        this.imgUrl = imgUrl;
     }
 
     public String getId() {
@@ -198,5 +200,13 @@ public class Room implements Serializable {
 
     public void setDetail(String detail) {
         this.detail = detail;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 }
