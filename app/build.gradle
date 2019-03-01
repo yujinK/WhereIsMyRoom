@@ -47,4 +47,10 @@ dependencies {
 
     //Toggle Button
     implementation 'org.honorato.multistatetogglebutton:multistatetogglebutton:0.2.2'
+
+    //Permission
+    implementation 'gun0912.ted:tedpermission:2.0.0'
+
+    //BottomPicker
+    implementation 'gun0912.ted:tedbottompicker:2.0.0-alpha1'
 }
