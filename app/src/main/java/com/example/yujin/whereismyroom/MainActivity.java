@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
             String elevator = cursor.getString(cursor.getColumnIndex("elevator"));
             String parking = cursor.getString(cursor.getColumnIndex("parking"));
             String detail = cursor.getString(cursor.getColumnIndex("detail"));
-            String imgUrl = cursor.getString(cursor.getColumnIndex("imgUrl"));
+            String imgUrl = cursor.getString(cursor.getColumnIndex("img_url"));
 
             roomList.add(new Room(id, deposit, rentMonth, rentType, utilities, includedUtilities
                     , stationName, routeName, buildFloor, myFloor

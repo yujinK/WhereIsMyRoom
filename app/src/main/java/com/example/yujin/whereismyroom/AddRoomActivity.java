@@ -151,6 +151,16 @@ public class AddRoomActivity extends AppCompatActivity {
 
 
     public void initEdit() {
+        if (room.getImgUrl() != null && !room.getImgUrl().isEmpty()) {
+            //기존 view 숨기기
+            binding.addBtnRoomImg.setVisibility(View.GONE);
+            binding.addTxtRoomImg.setVisibility(View.GONE);
+            binding.addLayoutImg.setBackgroundColor(getResources().getColor(R.color.transparency));
+
+            binding.addImgId1.setVisibility(View.VISIBLE);
+            Glide.with(this).load(room.getImgUrl()).into(binding.addImgId1);
+        }
+
         binding.addEditDeposit.setText(room.getDeposit());
         binding.addEditRentMonth.setText(room.getRentMonth());
         binding.addEditUtilities.setText(room.getUtilities());
@@ -338,6 +348,29 @@ public class AddRoomActivity extends AppCompatActivity {
         });
     }
 
+    public boolean onRoomImageLongClick(View view) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(AddRoomActivity.this);
+        builder.setTitle(R.string.alert);
+        builder.setMessage(R.string.addDeleteImgMessage);
+        builder.setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //LongClick시 사진 삭제
+                binding.addImgId1.setImageResource(0);
+                binding.addImgId1.setVisibility(View.GONE);
+
+                //기존 view 보이기
+                binding.addBtnRoomImg.setVisibility(View.VISIBLE);
+                binding.addTxtRoomImg.setVisibility(View.VISIBLE);
+                binding.addLayoutImg.setBackgroundColor(getResources().getColor(R.color.alphaGray));
+            }
+        });
+        builder.setNegativeButton(R.string.cancel, null);
+        builder.show();
+
+        return false;
+    }
+
     public void onAddRoomImage(View view) {
         TedPermission.with(this)
                 .setPermissionListener(permissionListener)
@@ -361,30 +394,30 @@ public class AddRoomActivity extends AppCompatActivity {
                         //ImageView 보이기
                         binding.addImgId1.setVisibility(View.VISIBLE);
 
-                        binding.addImgId1.setOnLongClickListener(new View.OnLongClickListener() {
-                            @Override
-                            public boolean onLongClick(View v) {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(AddRoomActivity.this);
-                                builder.setTitle(R.string.alert);
-                                builder.setMessage(R.string.addDeleteImgMessage);
-                                builder.setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        //LongClick시 사진 삭제
-                                        binding.addImgId1.setImageResource(0);
-                                        binding.addImgId1.setVisibility(View.GONE);
-
-                                        //기존 view 보이기
-                                        binding.addBtnRoomImg.setVisibility(View.VISIBLE);
-                                        binding.addTxtRoomImg.setVisibility(View.VISIBLE);
-                                        binding.addLayoutImg.setBackgroundColor(getResources().getColor(R.color.alphaGray));
-                                    }
-                                });
-                                builder.setNegativeButton(R.string.cancel, null);
-                                builder.show();
-                                return false;
-                            }
-                        });
+//                        binding.addImgId1.setOnLongClickListener(new View.OnLongClickListener() {
+//                            @Override
+//                            public boolean onLongClick(View v) {
+//                                AlertDialog.Builder builder = new AlertDialog.Builder(AddRoomActivity.this);
+//                                builder.setTitle(R.string.alert);
+//                                builder.setMessage(R.string.addDeleteImgMessage);
+//                                builder.setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
+//                                    @Override
+//                                    public void onClick(DialogInterface dialog, int which) {
+//                                        //LongClick시 사진 삭제
+//                                        binding.addImgId1.setImageResource(0);
+//                                        binding.addImgId1.setVisibility(View.GONE);
+//
+//                                        //기존 view 보이기
+//                                        binding.addBtnRoomImg.setVisibility(View.VISIBLE);
+//                                        binding.addTxtRoomImg.setVisibility(View.VISIBLE);
+//                                        binding.addLayoutImg.setBackgroundColor(getResources().getColor(R.color.alphaGray));
+//                                    }
+//                                });
+//                                builder.setNegativeButton(R.string.cancel, null);
+//                                builder.show();
+//                                return false;
+//                            }
+//                        });
 
                         //layout 배경색 없애기
                         binding.addLayoutImg.setBackgroundColor(getResources().getColor(R.color.transparency));

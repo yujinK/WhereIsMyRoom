@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.yujin.whereismyroom.common.Globals;
 import com.example.yujin.whereismyroom.common.Util;
 import com.example.yujin.whereismyroom.databinding.ActivityDetailRoomBinding;
@@ -67,6 +68,11 @@ public class DetailRoomActivity extends AppCompatActivity {
     }
 
     public void setRoomData() {
+        if (room.getImgUrl() != null && !room.getImgUrl().isEmpty()) {
+            binding.detailImgRoom.setVisibility(View.VISIBLE);
+            Glide.with(DetailRoomActivity.this).load(room.getImgUrl()).into(binding.detailImgRoom);
+        }
+
         //전월세 셋팅
         binding.detailTxtRentType.setText(room.getRentType());
         if (room.getRentType().equals("전세")) {

@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.yujin.whereismyroom.DetailRoomActivity;
 import com.example.yujin.whereismyroom.R;
 import com.example.yujin.whereismyroom.RecyclerViewClickListener;
@@ -40,7 +41,9 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull RoomViewHolder holder, final int position) {
-        holder.imgRoom.setImageResource(R.drawable.room_sample);    // TODO: 이미지 추가 할 것
+        // TODO: 이미지 추가 할 것
+        Glide.with(context).load(roomList.get(position).getImgUrl()).into(holder.imgRoom);
+
         holder.rentType.setText(roomList.get(position).getRentType());
 
         if (roomList.get(position).getRentType().equals("전세")) {
