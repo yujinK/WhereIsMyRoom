@@ -42,7 +42,9 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder
     @Override
     public void onBindViewHolder(@NonNull RoomViewHolder holder, final int position) {
         // TODO: 이미지 추가 할 것
-        Glide.with(context).load(roomList.get(position).getImgUrl()).into(holder.imgRoom);
+        if (roomList.get(position).getImgUrl() != null && !roomList.get(position).getImgUrl().isEmpty()) {
+            Glide.with(context).load(roomList.get(position).getImgUrl()).into(holder.imgRoom);
+        }
 
         holder.rentType.setText(roomList.get(position).getRentType());
 

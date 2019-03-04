@@ -18,7 +18,7 @@
                 android:id="@+id/item_img_room"
                 android:layout_width="150dp"
                 android:layout_height="100dp"
-                tools:src="@drawable/room_sample"/>
+                android:src="@drawable/room_default_image"/>
 
             <TextView
                 android:id="@+id/item_txt_rent_type"
