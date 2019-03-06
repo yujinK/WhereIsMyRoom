@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".DetailRoomActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/detail_toolbar"
+            layout="@layout/toolbar"
+            app:title="@{@string/detailToolBar}"/>
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            android:background="@color/lightGray"
+            app:layout_constraintTop_toBottomOf="@+id/detail_toolbar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/detail_img_room"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/detail_txt_rent_type"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    tools:src="@drawable/room_sample"/>
+
+                <TextView
+                    android:id="@+id/detail_txt_rent_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="3dp"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/dimGray"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_img_room"
+                    app:layout_constraintBottom_toTopOf="@+id/detail_table"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/detail_txt_rent_cost"
+                    tools:text="전세"/>
+
+                <TextView
+                    android:id="@+id/detail_txt_rent_cost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/dimGray"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_img_room"
+                    app:layout_constraintBottom_toTopOf="@+id/detail_table"
+                    app:layout_constraintLeft_toRightOf="@+id/detail_txt_rent_type"
+                    app:layout_constraintRight_toRightOf="parent"
+                    tools:text="1억 3000"/>
+
+                <LinearLayout
+                    android:id="@+id/detail_layout_route"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_txt_rent_type"
+                    app:layout_constraintBottom_toTopOf="@+id/detail_table"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/detail_txt_subway_name">
+
+                    <!--<ImageView-->
+                        <!--android:id="@+id/detail_img_subway_route"-->
+                        <!--android:layout_width="20dp"-->
+                        <!--android:layout_height="20dp"-->
+                        <!--android:src="@drawable/seoul2"/>-->
+
+                    <!--<ImageView-->
+                        <!--android:id="@+id/detail_img_subway_route"-->
+                        <!--android:layout_width="20dp"-->
+                        <!--android:layout_height="20dp"-->
+                        <!--android:src="@drawable/seoul2"/>-->
+
+                </LinearLayout>
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/detail_img_subway_route"-->
+                    <!--android:layout_width="20dp"-->
+                    <!--android:layout_height="20dp"-->
+                    <!--android:layout_marginTop="5dp"-->
+                    <!--android:layout_marginBottom="10dp"-->
+                    <!--app:layout_constraintHorizontal_chainStyle="packed"-->
+                    <!--app:layout_constraintTop_toBottomOf="@+id/detail_txt_rent_type"-->
+                    <!--app:layout_constraintBottom_toTopOf="@+id/detail_table"-->
+                    <!--app:layout_constraintLeft_toLeftOf="parent"-->
+                    <!--app:layout_constraintRight_toLeftOf="@+id/detail_txt_subway_name"-->
+                    <!--android:src="@drawable/seoul2"/>-->
+
+                <TextView
+                    android:id="@+id/detail_txt_subway_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="3dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/dimGray"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_txt_rent_cost"
+                    app:layout_constraintBottom_toTopOf="@+id/detail_table"
+                    app:layout_constraintLeft_toRightOf="@+id/detail_layout_route"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:text="역삼"/>
+
+                <TableLayout
+                    android:id="@+id/detail_table"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@color/silver2"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_txt_rent_type"
+                    app:layout_constraintBottom_toTopOf="@+id/detail_txt_room_detail_title"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:weightSum="6">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/silver"
+                            android:textSize="14sp"
+                            android:textColor="@color/darkGray"
+                            android:text="@string/utilities"/>
+
+                        <TextView
+                            android:id="@+id/detail_txt_table_utilities"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="4"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/white"
+                            android:textSize="14sp"
+                            android:textColor="@color/dimGray"
+                            tools:text="3만원 (수도, 인터넷, TV)"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:weightSum="6">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/silver"
+                            android:textSize="14sp"
+                            android:textColor="@color/darkGray"
+                            android:text="@string/detailRoomFloor"/>
+
+                        <TextView
+                            android:id="@+id/detail_txt_table_floor"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="4"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/white"
+                            android:textSize="14sp"
+                            android:textColor="@color/dimGray"
+                            tools:text="3층 / 8층"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:weightSum="6">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/silver"
+                            android:textSize="14sp"
+                            android:textColor="@color/darkGray"
+                            android:text="@string/roomSize"/>
+
+                        <TextView
+                            android:id="@+id/detail_txt_table_size"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="4"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/white"
+                            android:textSize="14sp"
+                            android:textColor="@color/dimGray"
+                            tools:text="19.83m2 / 6평"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:weightSum="6">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/silver"
+                            android:textSize="14sp"
+                            android:textColor="@color/darkGray"
+                            android:text="@string/direction"/>
+
+                        <TextView
+                            android:id="@+id/detail_txt_table_direction"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="4"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/white"
+                            android:textSize="14sp"
+                            android:textColor="@color/dimGray"
+                            tools:text="-"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:weightSum="6">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/silver"
+                            android:textSize="14sp"
+                            android:textColor="@color/darkGray"
+                            android:text="@string/detailRoomType"/>
+
+                        <TextView
+                            android:id="@+id/detail_txt_table_type"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="4"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/white"
+                            android:textSize="14sp"
+                            android:textColor="@color/dimGray"
+                            tools:text="오픈형 원룸"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:weightSum="6">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/silver"
+                            android:textSize="14sp"
+                            android:textColor="@color/darkGray"
+                            android:text="@string/option"/>
+
+                        <TextView
+                            android:id="@+id/detail_txt_table_option"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="4"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/white"
+                            android:textSize="14sp"
+                            android:textColor="@color/dimGray"
+                            tools:text="에어컨\n냉장고\n세탁기\n가스레인지\n옷장\n신발장\n싱크대"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:weightSum="6">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/silver"
+                            android:textSize="14sp"
+                            android:textColor="@color/darkGray"
+                            android:text="@string/parking"/>
+
+                        <TextView
+                            android:id="@+id/detail_txt_table_parking"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="1dp"
+                            android:layout_weight="4"
+                            android:background="@color/white"
+                            android:padding="10dp"
+                            android:textColor="@color/dimGray"
+                            android:textSize="14sp"
+                            tools:text="가능" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:weightSum="6">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/silver"
+                            android:textSize="14sp"
+                            android:textColor="@color/darkGray"
+                            android:text="@string/elevator"/>
+
+                        <TextView
+                            android:id="@+id/detail_txt_table_elevator"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="4"
+                            android:layout_marginTop="1dp"
+                            android:padding="10dp"
+                            android:background="@color/white"
+                            android:textSize="14sp"
+                            android:textColor="@color/dimGray"
+                            tools:text="있음"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:weightSum="6">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:layout_marginTop="1dp"
+                            android:layout_marginBottom="1dp"
+                            android:padding="10dp"
+                            android:background="@color/silver"
+                            android:textSize="14sp"
+                            android:textColor="@color/darkGray"
+                            android:text="@string/animal"/>
+
+                        <TextView
+                            android:id="@+id/detail_txt_table_animal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="4"
+                            android:layout_marginTop="1dp"
+                            android:layout_marginBottom="1dp"
+                            android:padding="10dp"
+                            android:background="@color/white"
+                            android:textSize="14sp"
+                            android:textColor="@color/dimGray"
+                            tools:text="가능"/>
+                    </TableRow>
+
+                </TableLayout>
+
+                <TextView
+                    android:id="@+id/detail_txt_room_detail_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="18sp"
+                    android:textColor="@color/dimGray"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_table"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:text="@string/detailInfo"/>
+
+                <TextView
+                    android:id="@+id/detail_txt_room_detail_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="30dp"
+                    android:padding="10dp"
+                    android:background="@drawable/detail_textview_shape"
+                    android:textSize="14sp"
+                    android:textColor="@color/dimGray"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_txt_room_detail_title"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    tools:text="공동 현관 비밀번호, CCTV 설치\n근처 편의점, 슈퍼 있음\n수압 ㅇㅋ"/>
+
+            </android.support.constraint.ConstraintLayout>
+
+        </ScrollView>
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

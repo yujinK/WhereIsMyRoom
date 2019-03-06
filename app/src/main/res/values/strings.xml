@@ -1,3 +1,55 @@
 <resources>
-    <string name="app_name">WhereIsMyRoom</string>
+    <string name="app_name">내 방 찾기</string>
+
+    <!--common string-->
+    <string name="costInfo">가격</string>
+    <string name="currencyUnit">만원</string>
+    <string name="deposit">보증금</string>
+    <string name="rentYear">전세</string>
+    <string name="rentMonth">월세</string>
+    <string name="rentMonthDetail">전세의 경우 월세에 0을 입력하세요</string>
+    <string name="utilities">관리비</string>
+    <string name="utilitiesDetail">관리비가 없을 경우 0을 입력하세요</string>
+    <string name="includedUtilities">관리비 포함항목</string>
+    <string name="subway">지하철역</string>
+    <string name="floor">층수</string>
+    <string name="buildFloor">건물 층 수</string>
+    <string name="myFloor">해당 층 수</string>
+    <string name="direction">방향</string>
+    <string name="roomType">방 구조</string>
+    <string name="roomSize">크기</string>
+    <string name="roomSizeDetail">㎡과 평 중 하나만 입력하면 자동 계산됩니다</string>
+    <string name="roomSizeM">㎡</string>
+    <string name="roomSizeP">평</string>
+    <string name="roomArrow">=</string>
+    <string name="option">옵션</string>
+    <string name="animal">반려동물</string>
+    <string name="elevator">엘리베이터</string>
+    <string name="parking">주차</string>
+    <string name="nearSubway">인근 지하철역</string>
+    <string name="detailInfo">상세정보</string>
+    <string name="detailSub">기타 필요한 사항을 입력하세요</string>
+    <string name="submit">등록</string>
+    <string name="alert">알림</string>
+    <string name="ok">확인</string>
+    <string name="delete">삭제</string>
+    <string name="cancel">취소</string>
+    <string name="deleteItem">정말 삭제하시겠습니까?</string>
+
+    <!--subway-->
+    <string name="subwayURL">http://openapi.tago.go.kr/openapi/service/SubwayInfoService/getKwrdFndSubwaySttnList</string>
+    <string name="subwayKey">BDwHVfLE%2BlpXY%2BquiQ2eW9p7m6NYzVtCUZ143Wu%2Fx732UX0YTtiCvPLXOvWLUQGJwmTLncMIGF6P%2BUrcT9m%2Fxg%3D%3D</string>
+
+    <!--activity_add_room.xml-->
+    <string name="addToolBar">방 추가</string>
+    <string name="addInputAlertMessage"><font color='red'>보증금, 월세, 관리비</font>는 필수 항목입니다.\n모두 입력했는지 확인해주세요.</string>
+    <string name="addExitAlertMessage">입력된 항목이 있습니다.\n정말 취소하시겠습니까?</string>
+    <string name="addImgMessage">사진을 추가하려면 \'+\'버튼을 눌러주세요.</string>
+    <string name="addDeleteImgMessage">사진을 삭제하시겠습니까?</string>
+
+    <!--activity_detail_room.xml-->
+    <string name="detailToolBar">방 정보</string>
+    <string name="detailRoomFloor">층/건물층수</string>
+    <string name="detailRoomType">구조</string>
+    <string name="detailFloor">층</string>
 </resources>
