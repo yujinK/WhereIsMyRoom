@@ -22,10 +22,12 @@ Where is my room?은 다음과 같은 항목을 제공합니다.
 14. 주차
 15. 상세정보
 
+
+
 # 스크린샷
 
 <div>
-    <img width="200" src="https://user-images.githubusercontent.com/42233535/53892075-f4412100-406e-11e9-8373-b6bb2f916ea8.png">
+    <img width="200" src="https://user-images.githubusercontent.com/42233535/53892745-3a4ab480-4070-11e9-98ff-6846cd37bd12.png">
     <img width="200" src="https://user-images.githubusercontent.com/42233535/53892115-058a2d80-406f-11e9-9f99-076599e55800.png">
     <img width="200" src="https://user-images.githubusercontent.com/42233535/53892127-0d49d200-406f-11e9-86c8-c759eb7c257d.png">
 
