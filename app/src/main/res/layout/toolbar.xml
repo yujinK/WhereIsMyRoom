@@ -15,6 +15,6 @@
         android:elevation="4dp"
         android:theme="@style/Base.ThemeOverlay.AppCompat.ActionBar"
         app:title="@{title}"
-        app:titleTextColor="@color/white" />
+        app:titleTextColor="@color/white"/>
     
 </layout>

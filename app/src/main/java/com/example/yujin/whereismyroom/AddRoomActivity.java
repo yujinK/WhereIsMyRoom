@@ -383,7 +383,6 @@ public class AddRoomActivity extends AppCompatActivity {
                 .show(new TedBottomSheetDialogFragment.OnImageSelectedListener() {
                     @Override
                     public void onImageSelected(Uri uri) {
-                        Toast.makeText(AddRoomActivity.this, uri.toString(), Toast.LENGTH_SHORT).show();
                         //TODO: 나중에 사진 여러장 추가 가능하도록 수정하기
                         imgUrl = uri.toString();
 
@@ -393,31 +392,6 @@ public class AddRoomActivity extends AppCompatActivity {
 
                         //ImageView 보이기
                         binding.addImgId1.setVisibility(View.VISIBLE);
-
-//                        binding.addImgId1.setOnLongClickListener(new View.OnLongClickListener() {
-//                            @Override
-//                            public boolean onLongClick(View v) {
-//                                AlertDialog.Builder builder = new AlertDialog.Builder(AddRoomActivity.this);
-//                                builder.setTitle(R.string.alert);
-//                                builder.setMessage(R.string.addDeleteImgMessage);
-//                                builder.setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
-//                                    @Override
-//                                    public void onClick(DialogInterface dialog, int which) {
-//                                        //LongClick시 사진 삭제
-//                                        binding.addImgId1.setImageResource(0);
-//                                        binding.addImgId1.setVisibility(View.GONE);
-//
-//                                        //기존 view 보이기
-//                                        binding.addBtnRoomImg.setVisibility(View.VISIBLE);
-//                                        binding.addTxtRoomImg.setVisibility(View.VISIBLE);
-//                                        binding.addLayoutImg.setBackgroundColor(getResources().getColor(R.color.alphaGray));
-//                                    }
-//                                });
-//                                builder.setNegativeButton(R.string.cancel, null);
-//                                builder.show();
-//                                return false;
-//                            }
-//                        });
 
                         //layout 배경색 없애기
                         binding.addLayoutImg.setBackgroundColor(getResources().getColor(R.color.transparency));

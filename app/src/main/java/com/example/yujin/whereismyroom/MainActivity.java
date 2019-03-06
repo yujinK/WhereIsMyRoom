@@ -62,7 +62,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
         super.onRestart();
 
         loadRooms();
-        binding.mainRecyclerview.getAdapter().notifyDataSetChanged();
+//        binding.mainRecyclerview.getAdapter().notifyDataSetChanged();
+        roomAdapter.notifyDataSetChanged();
     }
 
     public void loadRooms() {
