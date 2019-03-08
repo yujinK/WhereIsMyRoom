@@ -29,6 +29,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setActivity(this);
 
+        Intent intent = new Intent(this, SplashActivity.class);
+        startActivity(intent);
+
         init();
     }
 
